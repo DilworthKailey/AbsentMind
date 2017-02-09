@@ -5,6 +5,7 @@
  */
 package absentmind;
 
+import Control.AntidoteControl;
 import Model.Location;
 import Model.Player;
 import Model.Scene;
@@ -23,7 +24,8 @@ public class AbsentMind {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        double weightTest = AntidoteControl.calcWeightInKilograms(50);
+        System.out.println("Calc weight equals " + weightTest);
         Player playerOne = new Player();
         
         playerOne.setName("John Doe");
