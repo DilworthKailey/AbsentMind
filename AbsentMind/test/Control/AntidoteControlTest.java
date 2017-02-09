@@ -27,13 +27,14 @@ public class AntidoteControlTest {
     public void tearDown() {
     }
 
-    /**
+    @Test
+    public void testCalcWeightInKilograms() {
+        
+     /**
      * Test of calcWeightInKilograms method, of class AntidoteControl.
      *  THIS METHOD COMPLETED AS GROUP PROJECT: 
      *  Dave Irwin, Kailey Dilworth, J.D. Jensen
      */
-    @Test
-    public void testCalcWeightInKilograms() {
 
         System.out.println("calcWeightInKilograms()" + " group project:");
         
