@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Josh
+ * @author Kailey
  */
 public class PasswordControlTest {
     

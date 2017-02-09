@@ -28,66 +28,160 @@ public class PasswordControl {
         third_letter = Character.toUpperCase(third_letter);
         fourth_letter = Character.toUpperCase(fourth_letter);
         
-        if (first_letter == 65 | first_letter == 66 | first_letter == 67 | first_letter == 68 | first_letter == 69 | first_letter == 70 | first_letter == 71){
-            value1 = 1; }
-        else if (first_letter == 72 | first_letter == 73 | first_letter == 74 | first_letter == 75 | first_letter == 76 | first_letter == 77 ){
-            value1 = 2;
+        switch (first_letter) {
+            case 65:
+            case 66:
+            case 67:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+                value1 = 1;
+                break;
+            case 72:
+            case 73:
+            case 74:
+            case 75:
+            case 76:
+            case 77:
+                value1 = 2;
+                break;
+            case 78:
+            case 79:
+            case 80:
+            case 81:
+            case 82:
+            case 83:
+                value1 = 3;
+                break;
+            case 84:
+            case 85:
+            case 86:
+            case 87:
+            case 88:
+            case 89:
+                value1 = 4;
+                break;
+            default:
+                value1 = 5;
+                break;
         }
-        else if (first_letter == 78 | first_letter == 79 | first_letter == 80 | first_letter == 81 | first_letter == 82 | first_letter == 83 ){
-            value1 = 3;
-        }
-        else if (first_letter == 84 | first_letter == 85 | first_letter == 86 | first_letter == 87 | first_letter == 88 | first_letter == 89){
-            value1 = 4;
-        }
-        else{
-            value1 = 5;   
-        }    
 
-         if (second_letter == 65 | second_letter == 66 | second_letter == 67 | second_letter == 68 | second_letter == 69 | second_letter == 70 | second_letter == 71){
-            value2 = 1;
-         }
-         else if (second_letter == 72 | second_letter == 73 | second_letter == 74 | second_letter == 75 | second_letter == 76 | second_letter == 77 ){
-            value2 = 2;
-         }
-         else if (second_letter == 78 | second_letter == 79 | second_letter == 80 | second_letter == 81 | second_letter == 82 | second_letter == 83 ){
-            value2 = 3;
-         }
-         else if (second_letter ==  84 | second_letter == 85 | second_letter == 86 | second_letter == 87 | second_letter == 88 | second_letter == 89){
-            value2 = 4;
-         }
-        else{
-            value2 = 5;}
+        switch (second_letter) {
+            case 65:
+            case 66:
+            case 67:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+                value2 = 1;
+                break;
+            case 72:
+            case 73:
+            case 74:
+            case 75:
+            case 76:
+            case 77:
+                value2 = 2;
+                break;
+            case 78:
+            case 79:
+            case 80:
+            case 81:
+            case 82:
+            case 83:
+                value2 = 3;
+                break;
+            case 84:
+            case 85:
+            case 86:
+            case 87:
+            case 88:
+            case 89:
+                value2 = 4;
+                break;
+            default:
+                value2 = 5;
+                break;
+        }
         
-        if (third_letter == 65 | third_letter == 66 | third_letter == 67 | third_letter == 68 | third_letter == 69 | third_letter == 70 | third_letter == 71){
-            value3 = 1;
-        }
-        else if (third_letter == 72 | third_letter == 73 | third_letter == 74 | third_letter == 75 | third_letter == 76 | third_letter == 77){
-            value3 = 2;
-        }
-        else if (third_letter == 78 | third_letter == 79 | third_letter == 80 | third_letter == 81 | third_letter == 82 | third_letter == 83){
-            value3 = 3;
-        }
-        else if (third_letter == 84 | third_letter == 85 | third_letter == 86 | third_letter == 87 | third_letter == 88 | third_letter == 89){
-            value3 = 4;
-        }
-        else{
-            value3 = 5;
+        switch (third_letter) {
+            case 65:
+            case 66:
+            case 67:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+                value3 = 1;
+                break;
+            case 72:
+            case 73:
+            case 74:
+            case 75:
+            case 76:
+            case 77:
+                value3 = 2;
+                break;
+            case 78:
+            case 79:
+            case 80:
+            case 81:
+            case 82:
+            case 83:
+                value3 = 3;
+                break;
+            case 84:
+            case 85:
+            case 86:
+            case 87:
+            case 88:
+            case 89:
+                value3 = 4;
+                break;
+            default:
+                value3 = 5;
+                break;
         }
         
-        if (fourth_letter == 65 | fourth_letter == 66 | fourth_letter == 67 | fourth_letter == 68 | fourth_letter == 69 | fourth_letter == 70 | fourth_letter == 71){
-            value4 = 1;
-        }
-        else if (fourth_letter == 72 | fourth_letter == 73 | fourth_letter == 74 | fourth_letter == 75 | fourth_letter == 76 | fourth_letter == 77){
-            value4 = 2;
-        }
-        else if (fourth_letter == 78 | fourth_letter == 79 | fourth_letter == 80 | fourth_letter == 81 | fourth_letter == 82 | fourth_letter == 83){
-            value4 = 3;
-        }
-        else if (fourth_letter == 84 | fourth_letter == 85 | fourth_letter == 86 | fourth_letter == 87 | fourth_letter == 88 | fourth_letter == 89){
-            value4 = 4;
-        }
-        else{
-            value4 = 5;
+        switch (fourth_letter) {
+            case 65:
+            case 66:
+            case 67:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+                value4 = 1;
+                break;
+            case 72:
+            case 73:
+            case 74:
+            case 75:
+            case 76:
+            case 77:
+                value4 = 2;
+                break;
+            case 78:
+            case 79:
+            case 80:
+            case 81:
+            case 82:
+            case 83:
+                value4 = 3;
+                break;
+            case 84:
+            case 85:
+            case 86:
+            case 87:
+            case 88:
+            case 89:
+                value4 = 4;
+                break;
+            default:
+                value4 = 5;
+                break;
         }
         
             value5 = Math.sqrt(Math.pow((value1 + value2), 2) + Math.pow((value3 + value4), 2)) * 10000;
@@ -99,9 +193,9 @@ public class PasswordControl {
            password = password + 100000;
         }
         if (password > 999999){
-           password = -1;
-           System.out.println("Input must be less than 1000000.");
+           password = -1; 
         }
+        
         return password;
     }
     
