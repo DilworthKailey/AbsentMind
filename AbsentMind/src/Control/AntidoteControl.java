@@ -30,6 +30,10 @@ public class AntidoteControl {
     
     public static double calcDosage(double weightKilo) {
         
+        /**
+        *   calcDosage() completed by Dave Irwin as individual project
+        **/
+        
         if (weightKilo < 13.61) {
             return - 2;
         }
