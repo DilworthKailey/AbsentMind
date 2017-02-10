@@ -66,8 +66,6 @@ public class AntidoteControl {
     } 
     
     public static boolean dosageCompare(double dosageInput, double calcDosage) {
-        if (dosageInput != calcDosage) {
-            return false;
-        } else return true;
+          return (dosageInput == calcDosage);
     }
 }
