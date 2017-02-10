@@ -30,11 +30,11 @@ public class AntidoteControl {
     
     public static double calcDosage(double weightKilo) {
         
-        if (weightKilo < 13.6078) {
+        if (weightKilo < 13.61) {
             return - 2;
         }
         
-        if (weightKilo > 455) {
+        if (weightKilo > 453.59) {
             return -3;
         }
         
