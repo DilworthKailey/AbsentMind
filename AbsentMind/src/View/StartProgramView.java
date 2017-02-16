@@ -19,7 +19,7 @@ public class StartProgramView {
     
         public StartProgramView() {
             
-            this.promptMessage = "\nPlease enter your name: (Must be at least four characters long)";
+            this.promptMessage = "\nPlease enter your name: (Must be at least four characters long) ";
             // display the banner when view is created
             this.displayBanner();
             
@@ -30,7 +30,7 @@ public class StartProgramView {
         System.out.println(
                 "\n********************************************"
                +"\n*                                          *"
-               +"\n*Welcome to Absent Mind                    *"
+               +"\n*Welcome to Absent Mind.                   *"
                +"\n*You have awoken on the subway with no     *"
                +"\n*memory of who you are or what is going on *"
                +"\n*except your name. It's up to you and your *"
@@ -84,8 +84,8 @@ public class StartProgramView {
 
     private boolean doAction(String playerName) {
         if (playerName.length() < 4){
-            System.out.println("\nInvalind player name:"
-                    + "The name must be greater than three characters in length");
+            System.out.println("\nInvalid player name: "
+                    + "The name must be greater than three characters in length.");
             return false;
         }
         
