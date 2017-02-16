@@ -9,42 +9,37 @@ import java.util.Scanner;
 
 /**
  *
- * @author Kailey
+ * @author Kailey, JD, Dave
  */
-public class MainMenuView {
+class HelpMenuView {
     
     private String menu;
 
-    public MainMenuView(){
+    public HelpMenuView(){
         this.menu = "\n"
                 + "\n-------------------------------------"
-                + "\n| Main Menu                         |"
+                + "\n| Help Menu                         |"
                 + "\n-------------------------------------"
-                + "\nS - Save Game"
-                + "\nL - Load Game"
-                + "\nR - Reset Game (Start new game)"
-                + "\nH - Help Menu"
-                + "\nC - Close Menu "
-                + "\nQ - Quit Game "
+                + "\nG - Goal of Game"
+                + "\nH - How to Move"
+                + "\nF - Finding Clues"
+                + "\nC - Close Menu"
                 + "\n-------------------------------------";
         
         System.out.println(menu);
     }
-    
-    public void displayMainMenuView() {
-        boolean done = false; // set flag to not done
+
+    public void displayHelpMenuView() {
+       boolean done = false; // set flag to not done
         do {
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
             
             done = this.doAction(menuOption);
                        
         } while (!done);
     }
     
-
-    private String getMenuOption() {
+     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = "";
         boolean valid = false;
@@ -69,19 +64,16 @@ public class MainMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice){
-            case "S": // save game
-                this.saveGame();
+            case "G": // goal of game
+                this.goalOfGame();
                 break;
-            case "L": // load game
-                this.startExistingGame();
+            case "H": // how to move
+                this.howToMove();
                 break;
-            case "R": // restart game
-                this.startNewGame();
+            case "F": // finding clues
+                this.findingClues();
                 break;
-            case "H": // display help menu
-                this.displayHelpMenu();
-                break;
-            case "C": //Quit Menu
+            case "C": // close menu
                 this.closeMenu();
                 break;
             default:
@@ -92,27 +84,25 @@ public class MainMenuView {
             return false;
         }
 
-    private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+    private void goalOfGame() {
+        System.out.println("\nExplore locations, find clues, and regain your memory. There is a time limit you need to reach each area.");
+    
     }
 
-    private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void howToMove() {
+        System.out.println("\nUse the Game Menu to move to each location using the directions given to you. You can only move in directions that are available.");
+
     }
 
-    private void startNewGame() {
-        System.out.println("\n*** startNewGame function called ***");
-    }
-
-    private void displayHelpMenu() {
-      HelpMenuView helpMenuView = new HelpMenuView();
-        
-      helpMenuView.displayHelpMenuView();
+    private void findingClues() {
+        System.out.println("\nIn the Game Menu, use the Examine command to get a better feel for your area; directions you can move, hints, people and objects. Interact with these items to find clues and gather information. Clues, Key Items, and character profiles will be stored in your inventory.");
+    
     }
 
     private void closeMenu() {
-        System.out.println("\n*** closeMenu function called ***");
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        mainMenuView.displayMainMenuView();
     }
-    
     
 }
