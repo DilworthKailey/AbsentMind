@@ -5,10 +5,28 @@
  */
 package Control;
 
+import Model.Player;
+import absentmind.AbsentMind;
+
 /**
  *
  * @author Josh
  */
 public class GameControl {
+
+    public static Player createPlayer(String playerName) {
+        
+        if (playerName == null){
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(playerName);
+        
+        AbsentMind.setPlayer(player); // save the player
+        
+        return player;
+        
+    }
     
 }

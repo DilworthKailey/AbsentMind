@@ -7,12 +7,12 @@ package View;
 
 /**
  *
- * @author Josh
+ * @author Kailey
  */
-public class MainMenuView {
+class MainMenuView {
 
     void displayMainMenuView() {
-       System.out.println("\n*** displayMenu() function called ***");
+        System.out.println("\n*** displayMenu() function called ***");
     }
     
 }
