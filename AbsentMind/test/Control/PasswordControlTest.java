@@ -77,6 +77,7 @@ public class PasswordControlTest {
         assertEquals(expResult, result, 0.01);
         // TODO review the generated test code and remove the default call to fail.
         System.out.println(result);
+        
     }
     
 }
