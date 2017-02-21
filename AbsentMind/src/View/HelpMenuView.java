@@ -74,8 +74,19 @@ class HelpMenuView {
                 this.findingClues();
                 break;
             case "C": // close menu
-                this.closeMenu();
-                break;
+                this.menu = "\n"
+                + "\n-------------------------------------"
+                + "\n| Main Menu                         |"
+                + "\n-------------------------------------"
+                + "\nS - Save Game"
+                + "\nL - Load Game"
+                + "\nR - Reset Game (Start new game)"
+                + "\nH - Help Menu"
+                + "\nC - Close Menu "
+                + "\nQ - Quit Game "
+                + "\n-------------------------------------";
+                 System.out.println(menu);
+                 return true;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");
                 break;
@@ -98,11 +109,5 @@ class HelpMenuView {
         System.out.println("\nIn the Game Menu, use the Examine command to get a better feel for your area; directions you can move, hints, people and objects. Interact with these items to find clues and gather information. Clues, Key Items, and character profiles will be stored in your inventory.");
     
     }
-
-    private void closeMenu() {
-        MainMenuView mainMenuView = new MainMenuView();
-        
-        mainMenuView.displayMainMenuView();
-    }
-    
+   
 }
