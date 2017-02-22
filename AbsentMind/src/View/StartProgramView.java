@@ -108,7 +108,6 @@ public class StartProgramView {
         // display a custom welcome message
         System.out.println("\n======================================"
                           + "\n Welcome to Absent Mind " + player.getName() + "!"
-                          + "\n Try not to die!"
                           + "\n=====================================");
         // Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();

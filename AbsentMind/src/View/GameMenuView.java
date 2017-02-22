@@ -23,6 +23,7 @@ class GameMenuView {
                 + "\nM - Move"
                 + "\nV - View Map"
                 + "\nS - Status"
+                + "\nS - Item Menu"
                 + "\nE - Examine"
                 + "\nT - Talk "
                 + "\nQ - Return to Main Menu "
@@ -68,19 +69,22 @@ class GameMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice){
-            case "M": // save game
+            case "M": // move to new location
                 this.move();
                 break;
-            case "V": // load game
+            case "V": // view map
                 this.viewMap();
                 break;
-            case "S": // restart game
+            case "S": // see player/game status
                 this.status();
                 break;
-            case "E": // display help menu
+            case "I": // check inventory
+                this.itemMenu();
+                break;
+            case "E": // examine command
                 this.examine();
                 break;
-            case "T": // display help menu
+            case "T": // talk if there are npcs in the area
                 this.talk();
                 break;
             default:
@@ -102,6 +106,10 @@ class GameMenuView {
     private void status() {
         System.out.println("\n*** status function called ***");
     }
+    
+    private void itemMenu() {
+        System.out.println("\n*** itemMenu function called ***");
+    }
 
     private void examine() {
         System.out.println("\n*** examine function called ***");
@@ -110,5 +118,7 @@ class GameMenuView {
     private void talk() {
         System.out.println("\n*** talk function called ***");
     }
+
+    
     
 }
