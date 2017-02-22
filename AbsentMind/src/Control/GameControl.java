@@ -28,5 +28,10 @@ public class GameControl {
         return player;
         
     }
+
+    public static int createNewGame(Player player) {
+        System.out.println("\n*** createNewGame function called ***");
+        return 0;
+    }
     
 }

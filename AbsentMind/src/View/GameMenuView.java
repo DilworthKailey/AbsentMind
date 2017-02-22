@@ -5,35 +5,33 @@
  */
 package View;
 
-import Control.GameControl;
-import absentmind.AbsentMind;
 import java.util.Scanner;
 
 /**
  *
- * @author Kailey
+ * @author Josh
  */
-public class MainMenuView {
+class GameMenuView {
     
     private String menu;
 
-    public MainMenuView(){
+    public GameMenuView(){
         this.menu = "\n"
                 + "\n-------------------------------------"
-                + "\n| Main Menu                         |"
+                + "\n| Game Menu                         |"
                 + "\n-------------------------------------"
-                + "\nS - Save Game"
-                + "\nL - Load Game"
-                + "\nR - Reset Game (Start new game)"
-                + "\nH - Help Menu"
-                + "\nC - Close Menu "
-                + "\nQ - Quit Game "
+                + "\nM - Move"
+                + "\nV - View Map"
+                + "\nS - Status"
+                + "\nE - Examine"
+                + "\nT - Talk "
+                + "\nQ - Return to Main Menu "
                 + "\n-------------------------------------";
         
         System.out.println(menu);
     }
-    
-    public void displayMainMenuView() {
+
+    void displayGameMenu() {
         boolean done = false; // set flag to not done
         do {
             String menuOption = this.getMenuOption();
@@ -45,8 +43,7 @@ public class MainMenuView {
         } while (!done);
     }
     
-
-    private String getMenuOption() {
+     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = "";
         boolean valid = false;
@@ -65,26 +62,26 @@ public class MainMenuView {
             }        
         return value;
     }
-
-    private boolean doAction(String choice) {
+     
+     private boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice){
-            case "S": // save game
-                this.saveGame();
+            case "M": // save game
+                this.move();
                 break;
-            case "L": // load game
-                this.startExistingGame();
+            case "V": // load game
+                this.viewMap();
                 break;
-            case "R": // restart game
-                this.startNewGame();
+            case "S": // restart game
+                this.status();
                 break;
-            case "H": // display help menu
-                this.displayHelpMenu();
+            case "E": // display help menu
+                this.examine();
                 break;
-            case "C": //Quit Menu
-                this.closeMenu();
+            case "T": // display help menu
+                this.talk();
                 break;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");
@@ -94,33 +91,24 @@ public class MainMenuView {
             return false;
         }
 
-    private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+    private void move() {
+        System.out.println("\n*** move function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void viewMap() {
+        System.out.println("\n*** viewMap function called ***");
     }
 
-    private void startNewGame() {
-        int value = GameControl.createNewGame(AbsentMind.getPlayer());
-        if (value < 0){
-            System.out.println("ERROR - Failed to create new game");
-        }
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenu();
+    private void status() {
+        System.out.println("\n*** status function called ***");
     }
 
-    private void displayHelpMenu() {
-      HelpMenuView helpMenuView = new HelpMenuView();
-        
-      helpMenuView.displayHelpMenuView();
+    private void examine() {
+        System.out.println("\n*** examine function called ***");
     }
 
-    private void closeMenu() {
-        System.out.println("\n*** closeMenu function called ***");
+    private void talk() {
+        System.out.println("\n*** talk function called ***");
     }
-    
     
 }
