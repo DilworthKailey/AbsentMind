@@ -16,6 +16,7 @@ import Model.NonPlayableCharacter;
 import Model.KeyItem;
 import View.StartProgramView;
 
+
 /**
  *
  * @author Josh
@@ -47,6 +48,7 @@ public class AbsentMind {
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
 //        double weightTest = AntidoteControl.calcWeightInKilograms(50);
 //        System.out.println("Calc weight equals " + weightTest);
 //        Player playerOne = new Player();
@@ -119,6 +121,7 @@ public class AbsentMind {
 //        
 //        String npcInfo = npcOne.toString();
 //        System.out.println(npcInfo);
+
 
 
         
