@@ -107,7 +107,20 @@ public class MainMenuView {
         if (value < 0){
             System.out.println("ERROR - Failed to create new game");
         }
-        
+        System.out.println(
+                "\n********************************************"
+               +"\n*                                          *"
+               +"\n*It's a crowded subway train with people   *"
+               +"\n*heading home from the daily grind.        *"
+               +"\n*You are getting strange stares, especially*"
+               +"\n*from an old woman, clutching her pocket   *"
+               +"\n*book in her lap. The train is headed      *"
+               +"\n*northbound with a stop incoming in        *"
+               +"\n*15 minutes. You have no memory of who you *"
+               +"\n*are or what you are doing there. You have *"
+               +"\n*found yourself with an Absent Mind.       *"
+               +"\n********************************************"
+        );
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayGameMenu();
     }

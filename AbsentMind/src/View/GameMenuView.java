@@ -94,9 +94,63 @@ class GameMenuView {
         
             return false;
         }
+     
+        private boolean doMove(String choice) {
+        
+        choice = choice.toUpperCase(); // convert choice to upper case
+        
+        switch (choice){
+            case "N": // move to new location
+                this.north();
+                break;
+            case "E": // view map
+                this.east();
+                break;
+            case "S": // see player/game status
+                this.south();
+                break;
+            case "W": // check inventory
+                this.west();
+                break;
+            case "Q": // examine command
+                return true;
+            default:
+                System.out.println("\n*** Not a valid command *** Try again");
+                break;
+        }
+        
+            return false;
+        }
 
     private void move() {
-        System.out.println("\n*** move function called ***");
+        System.out.println("\nYou can move North, East, South and West if the option is available on the map with N, E, S, and W." + "\nPress Q to return to the Game Menu.");
+        
+        boolean done = false; // set flag to not done
+        do {
+            String menuOption = this.getMenuOption();
+            if (menuOption.toUpperCase().equals("Q"))
+                return;
+            
+            done = this.doMove(menuOption);
+                       
+        } while (!done);
+    
+        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        String value = "";
+        boolean valid = false;
+        
+        while (!valid) { //loop while an invalid value is enter
+            System.out.println("\nEnter a command:");
+            
+            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = value.trim(); // trim off leading and trailing blanks
+            
+            if (value.length() < 1) { // value is blank
+                System.out.println("\nInvalid value: value must be at least 1 character");
+                continue;
+            }
+                break; // end the loop
+            }           
     }
 
     private void viewMap() {
@@ -119,6 +173,22 @@ class GameMenuView {
         System.out.println("\n*** talk function called ***");
     }
 
-    
+    // Move Options
+
+    private void north() {
+        System.out.println("\n*** north function called ***");
+    }
+
+    private void east() {
+        System.out.println("\n*** east function called ***");
+    }
+
+    private void south() {
+        System.out.println("\n*** south function called ***");
+    }
+
+    private void west() {
+        System.out.println("\n*** west function called ***");
+    }
     
 }
