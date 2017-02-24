@@ -75,6 +75,22 @@ public class ItemMenuView {
             case "A": // see action notes
                 this.actions();
                 break;
+            case "Q": // close menu
+                this.menu = "\n"
+                + "\n-------------------------------------"
+                + "\n| Game Menu                         |"
+                + "\n-------------------------------------"
+                + "\nM - Move"
+                + "\nV - View Map"
+                + "\nS - Status"
+                + "\nI - Item Menu"
+                + "\nE - Examine"
+                + "\nT - Talk "
+                + "\nW - Weight Puzzle"
+                + "\nQ - Return to Main Menu "
+                + "\n-------------------------------------";
+                 System.out.println(menu);
+                 return true;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");
                 break;

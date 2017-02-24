@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Josh
  */
-class GameMenuView {
+public class GameMenuView {
     
     private String menu;
 
@@ -23,9 +23,10 @@ class GameMenuView {
                 + "\nM - Move"
                 + "\nV - View Map"
                 + "\nS - Status"
-                + "\nS - Item Menu"
+                + "\nI - Item Menu"
                 + "\nE - Examine"
                 + "\nT - Talk "
+                + "\nW - Weight Puzzle"
                 + "\nQ - Return to Main Menu "
                 + "\n-------------------------------------";
         
@@ -86,6 +87,9 @@ class GameMenuView {
                 break;
             case "T": // talk if there are npcs in the area
                 this.talk();
+                break;
+            case "W": // test weight puzzle
+                this.weight();
                 break;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");
@@ -155,6 +159,7 @@ class GameMenuView {
 
     private void viewMap() {
         System.out.println("\n*** viewMap function called ***");
+        
     }
 
     private void status() {
@@ -162,7 +167,9 @@ class GameMenuView {
     }
     
     private void itemMenu() {
-        System.out.println("\n*** itemMenu function called ***");
+        ItemMenuView itemMenu = new ItemMenuView();
+        itemMenu.displayItemMenu();
+        
     }
 
     private void examine() {
@@ -173,6 +180,7 @@ class GameMenuView {
         System.out.println("\n*** talk function called ***");
     }
 
+    
     // Move Options
 
     private void north() {
@@ -190,5 +198,12 @@ class GameMenuView {
     private void west() {
         System.out.println("\n*** west function called ***");
     }
+
+    private void weight() {
+         WeightPuzzleView weightpuzz = new WeightPuzzleView();
+         weightpuzz.displayWeightPuzzleView();
+    }
+
+    
     
 }
