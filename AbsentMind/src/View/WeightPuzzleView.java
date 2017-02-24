@@ -78,6 +78,7 @@ public class WeightPuzzleView {
                 System.out.println("Invalid selection, try again.");
                 choice1 = -1;
             }
+            else valid = true;
         }
         return choice1;       
     }
@@ -97,10 +98,11 @@ public class WeightPuzzleView {
             selection = selection.trim(); // trim off leading and trailing blanks
             choice2 = Integer.parseInt(selection);
             
-             if (choice2 > 8 || choice2 < 1){
+             if (choice2 > 8 || choice2 < 0){
                 System.out.println("Invalid selection, try again.");
                 choice2 = -2;
             }
+             else valid = true;
         }       
         return choice2;
     }
@@ -137,6 +139,7 @@ public class WeightPuzzleView {
                 System.out.println("Invalid selection, try again.");
                 choice3 = -3;
             }
+            else valid = true;
         }        
         return choice3;
     }
@@ -156,10 +159,11 @@ public class WeightPuzzleView {
             selection = selection.trim(); // trim off leading and trailing blanks
             choice4 = Integer.parseInt(selection);
             
-             if (choice4 > 8 || choice4 < 1){
+             if (choice4 > 8 || choice4 < 0){
                 System.out.println("Invalid selection, try again.");
                 choice4 = -4;
             }
+             else valid = true;
         }       
         return choice4;
     }
@@ -181,13 +185,13 @@ public class WeightPuzzleView {
          int calcWeight = WeightPuzzleControl.calcWeight(side1, side2);
         
          switch(calcWeight) {
-             case 0 : System.out.println("The two sides are equal.");
+             case 0 : System.out.println("\nThe two sides are equal.");
              break;
-             case 1 : System.out.println("The right side weighs more.");
+             case 1 : System.out.println("\nThe right side weighs more.");
              break;
-             case 2 : System.out.println("The left side weighs more.");
+             case 2 : System.out.println("\nThe left side weighs more.");
              break;
-             default : System.out.println("An error occurred, please try again.");
+             default : System.out.println("\nAn error occurred, please try again.");
          }
         // perform next action
         
