@@ -26,7 +26,7 @@ class HelpMenuView {
                 + "\nC - Close Menu"
                 + "\n-------------------------------------";
         
-        System.out.println(menu);
+        
     }
 
     public void displayHelpMenuView() {
@@ -45,6 +45,7 @@ class HelpMenuView {
         boolean valid = false;
         
         while (!valid) { //loop while an invalid value is enter
+            System.out.println(menu);
             System.out.println("\nEnter a command:");
             
             value = keyboard.nextLine(); // get next line typed on keyboard
@@ -85,7 +86,7 @@ class HelpMenuView {
                 + "\nC - Close Menu "
                 + "\nQ - Quit Game "
                 + "\n-------------------------------------";
-                 System.out.println(menu);
+                 
                  return true;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");

@@ -26,7 +26,7 @@ public class ItemMenuView {
                 + "\nQ - Return to Game Menu "
                 + "\n-------------------------------------";
         
-        System.out.println(menu);
+        
     }
 
     void displayItemMenu() {
@@ -47,6 +47,7 @@ public class ItemMenuView {
         boolean valid = false;
         
         while (!valid) { //loop while an invalid value is enter
+            System.out.println(menu);
             System.out.println("\nEnter a command:");
             
             value = keyboard.nextLine(); // get next line typed on keyboard
@@ -89,7 +90,7 @@ public class ItemMenuView {
                 + "\nW - Weight Puzzle"
                 + "\nQ - Return to Main Menu "
                 + "\n-------------------------------------";
-                 System.out.println(menu);
+                
                  return true;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");

@@ -30,7 +30,7 @@ public class MainMenuView {
                 + "\nQ - Quit Game "
                 + "\n-------------------------------------";
         
-        System.out.println(menu);
+        
     }
     
     public void displayMainMenuView() {
@@ -52,6 +52,7 @@ public class MainMenuView {
         boolean valid = false;
         
         while (!valid) { //loop while an invalid value is enter
+            System.out.println(menu);
             System.out.println("\nEnter a command:");
             
             value = keyboard.nextLine(); // get next line typed on keyboard
