@@ -89,7 +89,7 @@ public class MainMenuView extends View {
                +"\n********************************************"
         );
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenu();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {

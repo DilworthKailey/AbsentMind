@@ -9,14 +9,13 @@ import java.util.Scanner;
 
 /**
  *
- * @author Josh
+ * @author Kailey
  */
-public class GameMenuView {
+public class GameMenuView extends View {
     
-    private String menu;
 
     public GameMenuView(){
-        this.menu = "\n"
+        super("\n"
                 + "\n-------------------------------------"
                 + "\n| Game Menu                         |"
                 + "\n-------------------------------------"
@@ -25,52 +24,19 @@ public class GameMenuView {
                 + "\nS - Status"
                 + "\nI - Item Menu"
                 + "\nE - Examine"
-                + "\nT - Talk "
                 + "\nW - Weight Puzzle"
                 + "\nQ - Return to Main Menu "
-                + "\n-------------------------------------";
+                + "\n-------------------------------------");
         
         
     }
 
-    void displayGameMenu() {
-        boolean done = false; // set flag to not done
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doAction(menuOption);
-                       
-        } while (!done);
-    }
-    
-     private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) { //loop while an invalid value is enter
-            System.out.println(menu);
-            System.out.println("\nEnter a command:");
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value must be at least 1 character");
-                continue;
-            }
-                break; // end the loop
-            }        
-        return value;
-    }
      
-     private boolean doAction(String choice) {
+     public boolean doAction(String value) {
         
-        choice = choice.toUpperCase(); // convert choice to upper case
+        value = value.toUpperCase(); // convert choice to upper case
         
-        switch (choice){
+        switch (value){
             case "M": // move to new location
                 this.move();
                 break;
@@ -85,9 +51,6 @@ public class GameMenuView {
                 break;
             case "E": // examine command
                 this.examine();
-                break;
-            case "T": // talk if there are npcs in the area
-                this.talk();
                 break;
             case "W": // test weight puzzle
                 this.weight();
@@ -132,7 +95,7 @@ public class GameMenuView {
         
         boolean done = false; // set flag to not done
         do {
-            String menuOption = this.getMenuOption();
+            String menuOption = this.getInput();
             if (menuOption.toUpperCase().equals("Q"))
                 return;
             
@@ -177,9 +140,6 @@ public class GameMenuView {
         System.out.println("\n*** examine function called ***");
     }
 
-    private void talk() {
-        System.out.println("\n*** talk function called ***");
-    }
 
     
     // Move Options
