@@ -107,12 +107,13 @@ public class GameMenuView extends View {
     
     private void itemMenu() {
         ItemMenuView itemMenu = new ItemMenuView();
-        itemMenu.displayItemMenu();
+        itemMenu.display();
         
     }
 
     private void examine() {
-        System.out.println("\n*** examine function called ***");
+        ExamineMenuView examineMenu = new ExamineMenuView();
+        examineMenu.display();
     }
 
 

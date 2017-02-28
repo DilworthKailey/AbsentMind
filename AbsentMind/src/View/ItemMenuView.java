@@ -11,12 +11,12 @@ import java.util.Scanner;
  *
  * @author J.D.
  */
-public class ItemMenuView {
+public class ItemMenuView extends View{
     
- private String menu;
+ 
 
     public ItemMenuView(){
-        this.menu = "\n"
+        super("\n"
                 + "\n-------------------------------------"
                 + "\n| Item Menu                         |"
                 + "\n-------------------------------------"
@@ -24,49 +24,17 @@ public class ItemMenuView {
                 + "\nI - Inventory (Clues) found"
                 + "\nA - Activity Notes"
                 + "\nQ - Return to Game Menu "
-                + "\n-------------------------------------";
+                + "\n-------------------------------------");
         
         
     }
 
-    void displayItemMenu() {
-        boolean done = false; // set flag to not done
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doAction(menuOption);
-                       
-        } while (!done);
-    }
-    
-     private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) { //loop while an invalid value is enter
-            System.out.println(menu);
-            System.out.println("\nEnter a command:");
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value must be at least 1 character");
-                continue;
-            }
-                break; // end the loop
-            }        
-        return value;
-    }
      
-     private boolean doAction(String choice) {
+     public boolean doAction(String value) {
         
-        choice = choice.toUpperCase(); // convert choice to upper case
+        value = value.toUpperCase(); // convert choice to upper case
         
-        switch (choice){
+        switch (value){
             case "C": // see character notes
                 this.people();
                 break;
@@ -77,20 +45,6 @@ public class ItemMenuView {
                 this.actions();
                 break;
             case "Q": // close menu
-                this.menu = "\n"
-                + "\n-------------------------------------"
-                + "\n| Game Menu                         |"
-                + "\n-------------------------------------"
-                + "\nM - Move"
-                + "\nV - View Map"
-                + "\nS - Status"
-                + "\nI - Item Menu"
-                + "\nE - Examine"
-                + "\nT - Talk "
-                + "\nW - Weight Puzzle"
-                + "\nQ - Return to Main Menu "
-                + "\n-------------------------------------";
-                
                  return true;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");
