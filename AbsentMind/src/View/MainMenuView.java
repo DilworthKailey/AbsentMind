@@ -7,18 +7,17 @@ package View;
 
 import Control.GameControl;
 import absentmind.AbsentMind;
-import java.util.Scanner;
 
 /**
  *
  * @author Kailey
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private String menu;
+
 
     public MainMenuView(){
-        this.menu = "\n"
+        super("\n"
                 + "\n-------------------------------------"
                 + "\n| Main Menu                         |"
                 + "\n-------------------------------------"
@@ -28,50 +27,17 @@ public class MainMenuView {
                 + "\nH - Help Menu"
                 + "\nC - Close Menu "
                 + "\nQ - Quit Game "
-                + "\n-------------------------------------";
+                + "\n-------------------------------------");
         
         
     }
     
-    public void displayMainMenuView() {
-        boolean done = false; // set flag to not done
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doAction(menuOption);
-                       
-        } while (!done);
-    }
-    
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = "";
-        boolean valid = false;
+    @Override
+    public boolean doAction(String value) {
         
-        while (!valid) { //loop while an invalid value is enter
-            System.out.println(menu);
-            System.out.println("\nEnter a command:");
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value must be at least 1 character");
-                continue;
-            }
-                break; // end the loop
-            }        
-        return value;
-    }
-
-    private boolean doAction(String choice) {
+        value = value.toUpperCase(); // convert choice to upper case
         
-        choice = choice.toUpperCase(); // convert choice to upper case
-        
-        switch (choice){
+        switch (value){
             case "S": // save game
                 this.saveGame();
                 break;
@@ -129,7 +95,7 @@ public class MainMenuView {
     private void displayHelpMenu() {
       HelpMenuView helpMenuView = new HelpMenuView();
         
-      helpMenuView.displayHelpMenuView();
+      helpMenuView.display();
     }
 
     private void closeMenu() {
