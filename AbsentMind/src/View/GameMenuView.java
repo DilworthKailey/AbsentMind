@@ -91,34 +91,8 @@ public class GameMenuView extends View {
         }
 
     private void move() {
-        System.out.println("\nYou can move North, East, South and West if the option is available on the map with N, E, S, and W." + "\nPress Q to return to the Game Menu.");
-        
-        boolean done = false; // set flag to not done
-        do {
-            String menuOption = this.getInput();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doMove(menuOption);
-                       
-        } while (!done);
-    
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) { //loop while an invalid value is enter
-            System.out.println("\nEnter a command:");
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value must be at least 1 character");
-                continue;
-            }
-                break; // end the loop
-            }           
+        MoveMenuView moveMenu = new MoveMenuView();
+        moveMenu.display(); 
     }
 
     private void viewMap() {
@@ -127,7 +101,8 @@ public class GameMenuView extends View {
     }
 
     private void status() {
-        System.out.println("\n*** status function called ***");
+        StatusMenuView statusMenu = new StatusMenuView();
+        statusMenu.display();
     }
     
     private void itemMenu() {
