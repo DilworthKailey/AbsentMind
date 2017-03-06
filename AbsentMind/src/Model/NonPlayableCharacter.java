@@ -12,91 +12,62 @@ import java.util.Objects;
  *
  * @author David
  */
-public class NonPlayableCharacter implements Serializable{
+public enum NonPlayableCharacter implements Serializable{
     
-    private String name;
-    private String npcDescription;
-    private String dialogue;
-    private String npcClue;
+    OldWoman("An old woman riding the subway train. She is unnerved by your presence."),
+    Receptionist("An uninterested hospital receptionist. Wishes it was the end of their shift."),
+    Dennis("A doctor with a PhD. in hospital stuff. Can't figure out what's wrong with you."),
+    SecurityGuard("A friendly middle-aged man who seems slightly bored."),
+    SocietyMember("The newest member of the secret society. Doesn't know you're not supossed to be there.");
+    
+    
+    private final String description;
+    private final String name;
+    private final String dialogue;
+    private final String npcClue;
+    private final Point coordinates;
+    
+    private Game game;
+    private Scene scene;
 
-    public NonPlayableCharacter() {
+    public NonPlayableCharacter(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNpcDescription() {
-        return npcDescription;
-    }
-
-    public void setNpcDescription(String npcDescription) {
-        this.npcDescription = npcDescription;
+    public String getDescription() {
+        return description;
     }
 
     public String getDialogue() {
         return dialogue;
     }
 
-    public void setDialogue(String dialogue) {
-        this.dialogue = dialogue;
-    }
-
     public String getNpcClue() {
         return npcClue;
     }
 
-    public void setNpcClue(String npcClue) {
-        this.npcClue = npcClue;
+    public Game getGame() {
+        return game;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + Objects.hashCode(this.npcDescription);
-        hash = 97 * hash + Objects.hashCode(this.dialogue);
-        hash = 97 * hash + Objects.hashCode(this.npcClue);
-        return hash;
+    public void setGame(Game game) {
+        this.game = game;
     }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+   
+    
 
     @Override
     public String toString() {
-        return "NonPlayableCharacter{" + "name=" + name + ", npcDescription=" + npcDescription + ", dialogue=" + dialogue + ", npcClue=" + npcClue + '}';
+        return "NonPlayableCharacter{" + "name=" + name + ", description=" + description + ", dialogue=" + dialogue + ", npcClue=" + npcClue + '}';
     }
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final NonPlayableCharacter other = (NonPlayableCharacter) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.npcDescription, other.npcDescription)) {
-            return false;
-        }
-        if (!Objects.equals(this.dialogue, other.dialogue)) {
-            return false;
-        }
-        if (!Objects.equals(this.npcClue, other.npcClue)) {
-            return false;
-        }
-        return true;
-    }
-
-    
-   
-    
+ 
 }

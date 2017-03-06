@@ -17,11 +17,15 @@ public class Scene implements Serializable{
     private String description;
     private double travelTime;
     private String updateDescription;
-    private String nonPlayableCharacter;
     private String clueLocation;
     private String interactions;
     private String sceneName;
     private String displaySymbol;
+    
+    private NonPlayableCharacter nonPlayableCharacter;
+    private Clue[] clue;
+    private Location[] location;
+    private Game game;
     
     
     public Scene() {
@@ -51,14 +55,6 @@ public class Scene implements Serializable{
 
     public void setUpdateDescription(String updateDescription) {
         this.updateDescription = updateDescription;
-    }
-
-    public String getNonPlayableCharacter() {
-        return nonPlayableCharacter;
-    }
-
-    public void setNonPlayableCharacter(String nonPlayableCharacter) {
-        this.nonPlayableCharacter = nonPlayableCharacter;
     }
 
     public String getClueLocation() {
@@ -92,6 +88,39 @@ public class Scene implements Serializable{
     public void setDisplaySymbol(String displaySymbol) {
         this.displaySymbol = displaySymbol;
     }
+
+    public NonPlayableCharacter getNonPlayableCharacter() {
+        return nonPlayableCharacter;
+    }
+
+    public void setNonPlayableCharacter(NonPlayableCharacter nonPlayableCharacter) {
+        this.nonPlayableCharacter = nonPlayableCharacter;
+    }
+
+    public Clue[] getClue() {
+        return clue;
+    }
+
+    public void setClue(Clue[] clue) {
+        this.clue = clue;
+    }
+
+    public Location[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location[] location) {
+        this.location = location;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
     
     
 

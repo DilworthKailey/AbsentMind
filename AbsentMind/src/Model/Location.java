@@ -17,6 +17,9 @@ public class Location implements Serializable {
     private double row;
     private double column;
     private String visited;
+    
+    private Scene scene;
+    private Map[] map;
 
     public Location() {
     }
@@ -44,6 +47,24 @@ public class Location implements Serializable {
     public void setVisited(String visited) {
         this.visited = visited;
     }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public Map[] getMap() {
+        return map;
+    }
+
+    public void setMap(Map[] map) {
+        this.map = map;
+    }
+    
+    
 
     @Override
     public int hashCode() {

@@ -17,6 +17,10 @@ public class Clue implements Serializable{
     private String clueName;
     private String clueType;
     private String description;
+    
+    private Game game;
+    private Scene[] scene;
+            
 
     public Clue() {
     }

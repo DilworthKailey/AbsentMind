@@ -16,6 +16,9 @@ public class KeyItem implements Serializable{
     
     private String keyItemType;
     private String description;
+    
+    private Game game;
+    private Scene[] scene;
 
     public KeyItem() {
     }
@@ -35,6 +38,24 @@ public class KeyItem implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Scene[] getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene[] scene) {
+        this.scene = scene;
+    }
+    
+    
 
     @Override
     public int hashCode() {

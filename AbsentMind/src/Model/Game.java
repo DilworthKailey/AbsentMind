@@ -16,6 +16,13 @@ public class Game implements Serializable{
     private double currentColumn;
     private double timeExpired;
     private double timeRemaining;
+    
+    private NonPlayableCharacter[] nonPlayableCharacter;
+    private KeyItem[] keyItem;
+    private Clue[] clue;
+    private Map[] map;
+    private Player player;
+    
 
     public Game() {
     }
@@ -51,6 +58,48 @@ public class Game implements Serializable{
     public void setTimeRemaining(double timeRemaining) {
         this.timeRemaining = timeRemaining;
     }
+
+    public NonPlayableCharacter[] getNonPlayableCharacter() {
+        return nonPlayableCharacter;
+    }
+
+    public void setNonPlayableCharacter(NonPlayableCharacter[] nonPlayableCharacter) {
+        this.nonPlayableCharacter = nonPlayableCharacter;
+    }
+
+    public KeyItem[] getKeyItem() {
+        return keyItem;
+    }
+
+    public void setKeyItem(KeyItem[] keyItem) {
+        this.keyItem = keyItem;
+    }
+
+    public Clue[] getClue() {
+        return clue;
+    }
+
+    public void setClue(Clue[] clue) {
+        this.clue = clue;
+    }
+
+    public Map[] getMap() {
+        return map;
+    }
+
+    public void setMap(Map[] map) {
+        this.map = map;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
 
     @Override
     public int hashCode() {

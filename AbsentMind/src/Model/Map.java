@@ -19,6 +19,10 @@ public class Map implements Serializable {
     private double currentRow;
     private double currentColumn;
     private double currentScene;
+    
+    private Location location;
+    private Game game;
+    
 
     public Map() {
     }
@@ -70,6 +74,24 @@ public class Map implements Serializable {
     public void setCurrentScene(double currentScene) {
         this.currentScene = currentScene;
     }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+    
 
     @Override
     public int hashCode() {
