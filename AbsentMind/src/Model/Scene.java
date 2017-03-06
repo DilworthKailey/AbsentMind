@@ -26,6 +26,7 @@ public class Scene implements Serializable{
     private Clue[] clue;
     private Location[] location;
     private Game game;
+    private NpcClue[] npcClue;
     
     
     public Scene() {
@@ -119,6 +120,14 @@ public class Scene implements Serializable{
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public NpcClue[] getNpcClue() {
+        return npcClue;
+    }
+
+    public void setNpcClue(NpcClue[] npcClue) {
+        this.npcClue = npcClue;
     }
     
     

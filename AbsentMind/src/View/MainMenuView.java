@@ -70,10 +70,8 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        int value = GameControl.createNewGame(AbsentMind.getPlayer());
-        if (value < 0){
-            System.out.println("ERROR - Failed to create new game");
-        }
+        GameControl.createNewGame(AbsentMind.getPlayer());
+        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

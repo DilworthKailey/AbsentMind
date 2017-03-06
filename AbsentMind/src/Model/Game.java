@@ -20,6 +20,7 @@ public class Game implements Serializable{
     private NonPlayableCharacter[] nonPlayableCharacter;
     private KeyItem[] keyItem;
     private Clue[] clue;
+    private NpcClue[] npcClue;
     private Map[] map;
     private Player player;
     
@@ -98,6 +99,14 @@ public class Game implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    public NpcClue[] getNpcClue() {
+        return npcClue;
+    }
+
+    public void setNpcClue(NpcClue[] npcClue) {
+        this.npcClue = npcClue;
+    }
     
     
 
@@ -141,6 +150,10 @@ public class Game implements Serializable{
             return false;
         }
         return true;
+    }
+
+    public void setMap(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

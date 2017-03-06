@@ -6,6 +6,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -19,6 +20,7 @@ public class Location implements Serializable {
     private String visited;
     
     private Scene scene;
+    private ArrayList<NonPlayableCharacter> nonPlayableCharacter;
     private Map[] map;
 
     public Location() {
@@ -62,6 +64,14 @@ public class Location implements Serializable {
 
     public void setMap(Map[] map) {
         this.map = map;
+    }
+
+    public ArrayList<NonPlayableCharacter> getNonPlayableCharacter() {
+        return nonPlayableCharacter;
+    }
+
+    public void setNonPlayableCharacter(ArrayList<NonPlayableCharacter> nonPlayableCharacter) {
+        this.nonPlayableCharacter = nonPlayableCharacter;
     }
     
     

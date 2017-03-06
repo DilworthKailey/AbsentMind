@@ -22,29 +22,17 @@ public enum NonPlayableCharacter implements Serializable{
     
     
     private final String description;
-    private final String name;
-    private final String dialogue;
-    private final String npcClue;
-    private final Point coordinates;
+
     
     private Game game;
     private Scene scene;
 
-    public NonPlayableCharacter(String description) {
+    NonPlayableCharacter(String description) {
         this.description = description;
-        coordinates = new Point(1,1);
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public String getDialogue() {
-        return dialogue;
-    }
-
-    public String getNpcClue() {
-        return npcClue;
     }
 
     public Game getGame() {
@@ -67,7 +55,7 @@ public enum NonPlayableCharacter implements Serializable{
 
     @Override
     public String toString() {
-        return "NonPlayableCharacter{" + "name=" + name + ", description=" + description + ", dialogue=" + dialogue + ", npcClue=" + npcClue + '}';
+        return "NonPlayableCharacter{" + "name=" + ", description=" + description + ", dialogue=" + ", npcClue=" +'}';
     }
  
 }

@@ -10,37 +10,22 @@ import java.util.Objects;
 
 /**
  *
- * @author Kailey
+ * @author Josh
  */
-public class Clue implements Serializable{
-    
-    private String clueName;
-    private String clueType;
+public class NpcClue implements Serializable{
+   
+    private String npcClueName;
     private String description;
     
     private Game game;
     private Scene[] scene;
-            
 
-    public Clue() {
-    }
-    
-    
-
-    public String getClueName() {
-        return clueName;
+    public String getNpcClueName() {
+        return npcClueName;
     }
 
-    public void setClueName(String clueName) {
-        this.clueName = clueName;
-    }
-
-    public String getClueType() {
-        return clueType;
-    }
-
-    public void setClueType(String clueType) {
-        this.clueType = clueType;
+    public void setNpcClueName(String npcClueName) {
+        this.npcClueName = npcClueName;
     }
 
     public String getDescription() {
@@ -66,24 +51,21 @@ public class Clue implements Serializable{
     public void setScene(Scene[] scene) {
         this.scene = scene;
     }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.clueName);
-        hash = 97 * hash + Objects.hashCode(this.clueType);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.npcClueName);
         hash = 97 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Clue{" + "clueName=" + clueName + ", clueType=" + clueType + ", description=" + description + '}';
+        return "NPCClue{" + "npcClueName=" + npcClueName + ", description=" + description + '}';
     }
     
-
+ 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -95,18 +77,16 @@ public class Clue implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Clue other = (Clue) obj;
-        if (!Objects.equals(this.clueName, other.clueName)) {
+        final NpcClue other = (NpcClue) obj;
+        if (!Objects.equals(this.npcClueName, other.npcClueName)) {
             return false;
         }
-        if (!Objects.equals(this.clueType, other.clueType)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        return Objects.equals(this.description, other.description);
+        return true;
     }
     
+   
     
-    
-    
-    }
-  
+}
