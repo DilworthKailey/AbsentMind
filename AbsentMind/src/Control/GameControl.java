@@ -30,8 +30,22 @@ public class GameControl {
     }
 
     public static int createNewGame(Player player) {
-        System.out.println("\n*** createNewGame function called ***");
-        return 0;
+        Game game = new Game(); // create new game
+        AbsentMind.setCurrentGame(game); // save in AbsentMind
+        
+        game.setPlayer(player); // save player in game
+        
+        // create the inventory list and save in the game
+        InventoryItem[] inventoryList = GameControl.createInventoryList();
+        game.setInventory(inventoryList);
+        
+        Map map = MapControl.createMap(); // create and initialize new map
+        game.setMap(map); // sve map in game
+        
+        // move actors to starting position in the map
+        MapControl.moveNPCtoStartingLocation(map);
+        
     }
+    
     
 }
