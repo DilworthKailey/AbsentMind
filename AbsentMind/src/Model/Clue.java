@@ -22,9 +22,9 @@ public class Clue implements Serializable{
     private Scene[] scene;
             
 
-    public Clue() {
+    public Clue(String newspaper) {
+        System.out.println("\n*** Clue() called ***");
     }
-    
     
 
     public String getClueName() {

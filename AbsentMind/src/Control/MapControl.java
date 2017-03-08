@@ -24,11 +24,12 @@ public class MapControl {
     }
 
     static void moveNPCtoStartingLocation(Map map) {
-        System.out.println("\n*** createMap() called ***");
+        System.out.println("\n*** movetostart() called ***");
     }
 
     private static Scene[] createScenes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** createScenes() called ***");
+        return null;
     }
 
 

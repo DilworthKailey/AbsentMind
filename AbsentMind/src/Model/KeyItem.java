@@ -20,8 +20,10 @@ public class KeyItem implements Serializable{
     private Game game;
     private Scene[] scene;
 
-    public KeyItem() {
+    public KeyItem(String key) {
+        System.out.println("\n*** KeyItem() called ***");
     }
+
 
     public String getKeyItemType() {
         return keyItemType;

@@ -17,7 +17,7 @@ public class Location implements Serializable {
     
     private double row;
     private double column;
-    private String visited;
+    private boolean visited;
     
     private Scene scene;
     private ArrayList<NonPlayableCharacter> nonPlayableCharacter;
@@ -25,6 +25,8 @@ public class Location implements Serializable {
 
     public Location() {
     }
+    
+    
 
     public double getRow() {
         return row;
@@ -42,13 +44,15 @@ public class Location implements Serializable {
         this.column = column;
     }
 
-    public String getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(String visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
+
+    
 
     public Scene getScene() {
         return scene;

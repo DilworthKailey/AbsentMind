@@ -20,6 +20,12 @@ public class NpcClue implements Serializable{
     private Game game;
     private Scene[] scene;
 
+    public NpcClue(String old_Woman) {
+        System.out.println("\n*** NpcClue() called ***");
+    }
+    
+    
+    
     public String getNpcClueName() {
         return npcClueName;
     }

@@ -5,6 +5,12 @@
  */
 package View;
 
+import Model.Clue;
+import Model.Game;
+import Model.KeyItem;
+import Model.NpcClue;
+import absentmind.AbsentMind;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,9 +26,9 @@ public class ItemMenuView extends View{
                 + "\n-------------------------------------"
                 + "\n| Item Menu                         |"
                 + "\n-------------------------------------"
-                + "\nC - Character Notes"
-                + "\nI - Inventory (Clues) found"
-                + "\nA - Activity Notes"
+                + "\nC - Clues"
+                + "\nK - Key Items"
+                + "\nP - People"
                 + "\nQ - Return to Game Menu "
                 + "\n-------------------------------------");
         
@@ -36,13 +42,13 @@ public class ItemMenuView extends View{
         
         switch (value){
             case "C": // see character notes
+                this.clues();
+                break;
+            case "K": // see inventory list
+                this.keyItems();
+                break;
+            case "P": // see action notes
                 this.people();
-                break;
-            case "I": // see inventory list
-                this.inventory();
-                break;
-            case "A": // see action notes
-                this.actions();
                 break;
             case "Q": // close menu
                  return true;
@@ -55,15 +61,60 @@ public class ItemMenuView extends View{
         }
 
     private void people() {
-        System.out.println("\n*** Character Notes function called ***");
+        StringBuilder line;
+        
+        Game game = AbsentMind.getCurrentGame();
+        ArrayList<NpcClue> npcClue = game.getNpcClue();
+        
+        System.out.println("\n      LIST OF CLUES");
+        line = new StringBuilder("                              ");
+        line.insert(0, "DESCRIPTION");
+        System.out.println(line.toString());
+        
+        for (NpcClue item : npcClue) {
+            line = new StringBuilder("                          ");
+            line.insert(0, item.getDescription());
+            
+            System.out.println(line.toString());
+        }
     }
 
-    private void inventory() {
-        System.out.println("\n*** Inventory List function called ***");
+    private void clues() {
+        StringBuilder line;
+        
+        Game game = AbsentMind.getCurrentGame();
+        ArrayList<Clue> clue = game.getClue();
+        
+        System.out.println("\n      LIST OF CLUES");
+        line = new StringBuilder("                              ");
+        line.insert(0, "DESCRIPTION");
+        System.out.println(line.toString());
+        
+        for (Clue item : clue) {
+            line = new StringBuilder("                          ");
+            line.insert(0, item.getDescription());
+            
+            System.out.println(line.toString());
+        }
     }
 
-    private void actions() {
-        System.out.println("\n*** Action Notes function called ***");
+    private void keyItems() {
+        StringBuilder line;
+        
+        Game game = AbsentMind.getCurrentGame();
+        ArrayList<KeyItem> keyItem = game.getKeyItem();
+        
+        System.out.println("\n      LIST OF KEY ITEMS");
+        line = new StringBuilder("                              ");
+        line.insert(0, "DESCRIPTION");
+        System.out.println(line.toString());
+        
+        for (KeyItem item : keyItem) {
+            line = new StringBuilder("                          ");
+            line.insert(0, item.getDescription());
+            
+            System.out.println(line.toString());
+        }
     }
     
 }

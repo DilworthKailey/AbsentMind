@@ -6,6 +6,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,10 +19,10 @@ public class Game implements Serializable{
     private double timeRemaining;
     
     private NonPlayableCharacter[] nonPlayableCharacter;
-    private KeyItem[] keyItem;
-    private Clue[] clue;
-    private NpcClue[] npcClue;
-    private Map[] map;
+    private ArrayList<KeyItem> keyItem;
+    private ArrayList<Clue> clue;
+    private ArrayList<NpcClue> npcClue;
+    private Map map;
     private Player player;
     
 
@@ -68,29 +69,26 @@ public class Game implements Serializable{
         this.nonPlayableCharacter = nonPlayableCharacter;
     }
 
-    public KeyItem[] getKeyItem() {
+    public ArrayList<KeyItem> getKeyItem() {
         return keyItem;
     }
 
-    public void setKeyItem(KeyItem[] keyItem) {
+    public void setKeyItem(ArrayList<KeyItem> keyItem) {
         this.keyItem = keyItem;
     }
 
-    public Clue[] getClue() {
+    public ArrayList<Clue> getClue() {
         return clue;
     }
 
-    public void setClue(Clue[] clue) {
+    public void setClue(ArrayList<Clue> clue) {
         this.clue = clue;
     }
 
-    public Map[] getMap() {
+    public Map getMap() {
         return map;
     }
 
-    public void setMap(Map[] map) {
-        this.map = map;
-    }
 
     public Player getPlayer() {
         return player;
@@ -100,11 +98,11 @@ public class Game implements Serializable{
         this.player = player;
     }
 
-    public NpcClue[] getNpcClue() {
+    public ArrayList<NpcClue> getNpcClue() {
         return npcClue;
     }
 
-    public void setNpcClue(NpcClue[] npcClue) {
+    public void setNpcClue(ArrayList<NpcClue> npcClue) {
         this.npcClue = npcClue;
     }
     

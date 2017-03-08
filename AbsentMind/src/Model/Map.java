@@ -34,8 +34,8 @@ public class Map implements Serializable {
             return;
         }
         
-        this.noOfRows = noOfRows;
-        this.noOfColumns = noOfColumns;
+        this.rowCount = noOfRows;
+        this.columnCount = noOfColumns;
         
         this.locations = new Location[noOfRows][noOfColumns];
         

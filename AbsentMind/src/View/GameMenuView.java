@@ -5,6 +5,10 @@
  */
 package View;
 
+import Model.Game;
+import Model.Location;
+import Model.Map;
+import absentmind.AbsentMind;
 import java.util.Scanner;
 
 /**
@@ -62,33 +66,6 @@ public class GameMenuView extends View {
         
             return false;
         }
-     
-        private boolean doMove(String choice) {
-        
-        choice = choice.toUpperCase(); // convert choice to upper case
-        
-        switch (choice){
-            case "N": // move to new location
-                this.north();
-                break;
-            case "E": // view map
-                this.east();
-                break;
-            case "S": // see player/game status
-                this.south();
-                break;
-            case "W": // check inventory
-                this.west();
-                break;
-            case "Q": // examine command
-                return true;
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
-        }
 
     private void move() {
         MoveMenuView moveMenu = new MoveMenuView();
@@ -96,7 +73,50 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        System.out.println("\n*** viewMap function called ***");
+        String leftIndicator;
+        String rightIndicator;
+        // retreive the game replace PiratesOfTheOpenSeas with your game name
+        Game game = AbsentMind.getCurrentGame(); 
+        Map map = game.getMap(); // retreive the map from game
+         Location[][] locations = map.getLocations(); // retreive the locations from map
+            // Build the heading of the map
+            System.out.print("  |");
+            for( int column = 0; column < locations[0].length; column++){
+             // print col numbers to side of map
+            System.out.print("  " + column + " |"); 
+            }
+            // Now build the map.  For each row, show the column information
+            System.out.println();
+            for( int row = 0; row < locations.length; row++){
+              System.out.print(row + " "); // print row numbers to side of map
+             for( int column = 0; column < locations[row].length; column++){
+              // set default indicators as blanks
+             leftIndicator = " ";
+             rightIndicator = " ";
+             if(locations[row][column] == map.getLocation()){
+               // Set star indicators to show this is the current location.
+                  leftIndicator = "*"; 
+                  rightIndicator = "*"; 
+                } 
+                else if(locations[row][column].isVisited()){
+                  // Set < > indicators to show this location has been visited.
+                leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+                 rightIndicator = "<"; // same as above
+             }
+                System.out.print("|"); // start map with a |
+                if(locations[row][column].getScene() == null)
+                {
+                     // No scene assigned here so use ?? for the symbol
+                     System.out.print(leftIndicator + "??" + rightIndicator);
+                }
+                else
+                 System.out.print(leftIndicator
+                     + locations[row][column].getScene().getDisplaySymbol()
+                  + rightIndicator);
+            }
+            System.out.println("|");
+    }
+        
         
     }
 
@@ -116,25 +136,6 @@ public class GameMenuView extends View {
         examineMenu.display();
     }
 
-
-    
-    // Move Options
-
-    private void north() {
-        System.out.println("\n*** north function called ***");
-    }
-
-    private void east() {
-        System.out.println("\n*** east function called ***");
-    }
-
-    private void south() {
-        System.out.println("\n*** south function called ***");
-    }
-
-    private void west() {
-        System.out.println("\n*** west function called ***");
-    }
 
     private void weight() {
          WeightPuzzleView weightpuzz = new WeightPuzzleView();

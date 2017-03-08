@@ -21,6 +21,7 @@ public class Scene implements Serializable{
     private String interactions;
     private String sceneName;
     private String displaySymbol;
+    private boolean blocked;
     
     private NonPlayableCharacter nonPlayableCharacter;
     private Clue[] clue;
@@ -129,6 +130,14 @@ public class Scene implements Serializable{
     public void setNpcClue(NpcClue[] npcClue) {
         this.npcClue = npcClue;
     }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
+    }
     
     
     
@@ -188,6 +197,8 @@ public class Scene implements Serializable{
         }
         return Objects.equals(this.displaySymbol, other.displaySymbol);
     }
+
+
     
     
     
