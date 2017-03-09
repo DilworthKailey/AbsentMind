@@ -6,6 +6,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -14,11 +15,11 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
     private String mapType;
-    private double rowCount;
-    private double columnCount;
-    private double currentRow;
-    private double currentColumn;
-    private double currentScene;
+    private int rowCount;
+    private int columnCount;
+    private int currentRow;
+    private int currentColumn;
+    private Scene currentScene;
     private Location[][] locations;
     
     private Location location;
@@ -59,43 +60,43 @@ public class Map implements Serializable {
         this.mapType = mapType;
     }
 
-    public double getRowCount() {
+    public int getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(double rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
-    public double getColumnCount() {
+    public int getColumnCount() {
         return columnCount;
     }
 
-    public void setColumnCount(double columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 
-    public double getCurrentRow() {
+    public int getCurrentRow() {
         return currentRow;
     }
 
-    public void setCurrentRow(double currentRow) {
+    public void setCurrentRow(int currentRow) {
         this.currentRow = currentRow;
     }
 
-    public double getCurrentColumn() {
+    public int getCurrentColumn() {
         return currentColumn;
     }
 
-    public void setCurrentColumn(double currentColumn) {
+    public void setCurrentColumn(int currentColumn) {
         this.currentColumn = currentColumn;
     }
 
-    public double getCurrentScene() {
+    public Scene getCurrentScene() {
         return currentScene;
     }
 
-    public void setCurrentScene(double currentScene) {
+    public void setCurrentScene(Scene currentScene) {
         this.currentScene = currentScene;
     }
 
@@ -122,24 +123,20 @@ public class Map implements Serializable {
     public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
-    
-    
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.mapType);
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.currentRow) ^ (Double.doubleToLongBits(this.currentRow) >>> 32));
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.currentColumn) ^ (Double.doubleToLongBits(this.currentColumn) >>> 32));
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.currentScene) ^ (Double.doubleToLongBits(this.currentScene) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.mapType);
+        hash = 97 * hash + this.rowCount;
+        hash = 97 * hash + this.columnCount;
+        hash = 97 * hash + this.currentRow;
+        hash = 97 * hash + this.currentColumn;
+        hash = 97 * hash + Objects.hashCode(this.currentScene);
+        hash = 97 * hash + Arrays.deepHashCode(this.locations);
+        hash = 97 * hash + Objects.hashCode(this.location);
+        hash = 97 * hash + Objects.hashCode(this.game);
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Map{" + "mapType=" + mapType + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", currentScene=" + currentScene + '}';
     }
 
     @Override
@@ -154,26 +151,42 @@ public class Map implements Serializable {
             return false;
         }
         final Map other = (Map) obj;
-        if (Double.doubleToLongBits(this.rowCount) != Double.doubleToLongBits(other.rowCount)) {
+        if (this.rowCount != other.rowCount) {
             return false;
         }
-        if (Double.doubleToLongBits(this.columnCount) != Double.doubleToLongBits(other.columnCount)) {
+        if (this.columnCount != other.columnCount) {
             return false;
         }
-        if (Double.doubleToLongBits(this.currentRow) != Double.doubleToLongBits(other.currentRow)) {
+        if (this.currentRow != other.currentRow) {
             return false;
         }
-        if (Double.doubleToLongBits(this.currentColumn) != Double.doubleToLongBits(other.currentColumn)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.currentScene) != Double.doubleToLongBits(other.currentScene)) {
+        if (this.currentColumn != other.currentColumn) {
             return false;
         }
         if (!Objects.equals(this.mapType, other.mapType)) {
             return false;
         }
+        if (!Objects.equals(this.currentScene, other.currentScene)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        if (!Objects.equals(this.game, other.game)) {
+            return false;
+        }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Map{" + "mapType=" + mapType + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", currentScene=" + currentScene + ", locations=" + locations + ", location=" + location + ", game=" + game + '}';
+    }
+    
+
     
     
     

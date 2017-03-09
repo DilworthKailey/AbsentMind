@@ -69,7 +69,8 @@ public class GameMenuView extends View {
 
     private void move() {
         MoveMenuView moveMenu = new MoveMenuView();
-        moveMenu.display(); 
+        moveMenu.display();
+        this.viewMap();
     }
 
     private void viewMap() {

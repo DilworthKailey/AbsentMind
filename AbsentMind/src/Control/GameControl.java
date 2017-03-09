@@ -67,12 +67,12 @@ public class GameControl {
         
         ArrayList<KeyItem> keyItem = new ArrayList<>();
         
-        KeyItem key = new KeyItem("Key");
+        KeyItem key = new KeyItem("Key", "The unmarked key you found in your pocket. It appears to be a door key.");
         keyItem.add(key);
         
-        keyItem.add(new KeyItem("Gym Membership Card"));
-        keyItem.add(new KeyItem("Cellphone"));
-        keyItem.add(new KeyItem("Antidote"));
+        keyItem.add(new KeyItem("Gym Membership Card", "A membership card to Gym Neighbors with your name on it."));
+        keyItem.add(new KeyItem("Cellphone", "The cellphone you found in your coat pocket. It is password protected."));
+        keyItem.add(new KeyItem("Antidote", "The antidote to your poison."));
 
        return keyItem;
     }
@@ -81,13 +81,13 @@ public class GameControl {
         
         ArrayList<Clue> clue = new ArrayList<>();
         
-        Clue newspaper = new Clue("Newspaper");
+        Clue newspaper = new Clue("Newspaper", "Newspaper from the Big City Gazette. The front page article was written by you.");
         clue.add(newspaper);
         
-        clue.add(new Clue("Notebook"));
-        clue.add(new Clue("Locker Combination"));
-        clue.add(new Clue("Sticky Note"));
-        clue.add(new Clue("Phone Message"));
+        clue.add(new Clue("Notebook", "Notebook info tbd"));
+        clue.add(new Clue("Locker Combination", "A sticky note with your Gym locker number and combination on it."));
+        clue.add(new Clue("Sticky Note", "A sticky note explaining the phone password puzzle."));
+        clue.add(new Clue("Phone Message", "Phone message info tbd"));
 
        return clue;
     }
@@ -96,13 +96,13 @@ public class GameControl {
         
         ArrayList<NpcClue> npcClue = new ArrayList<>();
         
-        NpcClue oldWoman = new NpcClue("Old Woman");
+        NpcClue oldWoman = new NpcClue("Old Woman", "Clue obtained from the old woman on the subway.");
         npcClue.add(oldWoman);
         
-        npcClue.add(new NpcClue("Receptionist"));
-        npcClue.add(new NpcClue("Dr. Dennis"));
-        npcClue.add(new NpcClue("Security Guard"));
-        npcClue.add(new NpcClue("Society Member"));
+        npcClue.add(new NpcClue("Receptionist", "Hospital Receptionist gave you no new information."));
+        npcClue.add(new NpcClue("Dr. Dennis", "Dr. Dennis told you that you were poisoned."));
+        npcClue.add(new NpcClue("Security Guard", "Info from the security guard goes here."));
+        npcClue.add(new NpcClue("Society Member", "Missing info from Society Member goes here."));
         
        return npcClue;
     }

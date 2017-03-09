@@ -17,14 +17,19 @@ public class NpcClue implements Serializable{
     private String npcClueName;
     private String description;
     
-    private Game game;
-    private Scene[] scene;
 
-    public NpcClue(String old_Woman) {
-        System.out.println("\n*** NpcClue() called ***");
+
+//    public NpcClue(String description) {
+//        //System.out.println("\n*** NpcClue() called ***");
+//        this.description = description;
+//    }
+    
+    public NpcClue(String npcClueName, String description) {
+        //System.out.println("\n*** NpcClue() called ***");
+        this.npcClueName = npcClueName;
+        this.description = description;
+        
     }
-    
-    
     
     public String getNpcClueName() {
         return npcClueName;
@@ -42,21 +47,6 @@ public class NpcClue implements Serializable{
         this.description = description;
     }
 
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public Scene[] getScene() {
-        return scene;
-    }
-
-    public void setScene(Scene[] scene) {
-        this.scene = scene;
-    }
 
     @Override
     public int hashCode() {

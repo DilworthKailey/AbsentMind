@@ -5,6 +5,10 @@
  */
 package View;
 
+import Control.MapControl;
+import Model.Map;
+import absentmind.AbsentMind;
+
 /**
  *
  * @author Josh
@@ -36,17 +40,13 @@ public class MoveMenuView extends View {
         
         switch (value){
             case "N": // move to new location
-                this.north();
-                break;
+                return this.north();
             case "E": // view map
-                this.east();
-                break;
+                return this.east();
             case "S": // view map
-                this.south();
-                break;
+                return this.south();
             case "W": // view map
-                this.west();
-                break;
+                return this.west();
             default:
                 System.out.println("\n*** Not a valid command *** Try again");
                 break;
@@ -55,20 +55,52 @@ public class MoveMenuView extends View {
             return false;
         }
 
-    private void north() {
-        System.out.println("\n*** north function called ***");
+    private boolean north() {
+        //System.out.println("\n*** north function called ***");
+         Map map = AbsentMind.getCurrentGame().getMap();
+        if (map.getCurrentRow() == map.getRowCount() - 5)
+            System.out.println("\n*** You cannot move further North");
+        else {
+            MapControl.movePlayer(map, map.getCurrentRow() - 1, map.getCurrentColumn());
+            return true;
+        }
+        return false;
     }
 
-    private void east() {
-        System.out.println("\n*** east function called ***");
+    private boolean east() {
+        //System.out.println("\n*** east function called ***");
+        Map map = AbsentMind.getCurrentGame().getMap();
+        if (map.getCurrentColumn() == map.getColumnCount() - 1)
+            System.out.println("\n*** You cannot move further East");
+        else {
+            MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() + 1);
+            return true;
+        }
+        return false;
     }
 
-    private void south() {
-        System.out.println("\n*** south function called ***");
+    private boolean south() {
+        //System.out.println("\n*** south function called ***");
+         Map map = AbsentMind.getCurrentGame().getMap();
+        if (map.getCurrentRow() == map.getRowCount() - 1)
+            System.out.println("\n*** You cannot move further South");
+        else {
+            MapControl.movePlayer(map, map.getCurrentRow() + 1, map.getCurrentColumn());
+            return true;
+        }
+        return false;
     }
 
-    private void west() {
-        System.out.println("\n*** west function called ***");
+    private boolean west() {
+        //System.out.println("\n*** west function called ***");
+         Map map = AbsentMind.getCurrentGame().getMap();
+        if (map.getCurrentColumn() == map.getColumnCount() - 5)
+            System.out.println("\n*** You cannot move further West");
+        else {
+            MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() - 1);
+            return true;
+        }
+        return false;
     }
     
 }

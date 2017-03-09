@@ -22,10 +22,16 @@ public class Clue implements Serializable{
     private Scene[] scene;
             
 
-    public Clue(String newspaper) {
-        System.out.println("\n*** Clue() called ***");
-    }
+//    public Clue(String description) {
+//        //System.out.println("\n*** Clue() called ***");
+//        this.description = description;
+//    }
     
+    public Clue(String ClueName, String description) {
+        //System.out.println("\n*** Clue() called ***");
+        this.clueName = clueName;
+        this.description = description;
+    }
 
     public String getClueName() {
         return clueName;

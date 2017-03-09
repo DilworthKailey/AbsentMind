@@ -5,6 +5,7 @@
  */
 package View;
 
+import Control.InventoryControl;
 import Model.Clue;
 import Model.Game;
 import Model.KeyItem;
@@ -65,7 +66,7 @@ public class ItemMenuView extends View{
         
         Game game = AbsentMind.getCurrentGame();
         ArrayList<NpcClue> npcClue = game.getNpcClue();
-        
+        InventoryControl.doNpcSort(npcClue);
         System.out.println("\n      LIST OF CLUES");
         line = new StringBuilder("                              ");
         line.insert(0, "DESCRIPTION");

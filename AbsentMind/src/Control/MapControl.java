@@ -31,7 +31,7 @@ public class MapControl {
         movePlayer(map, 0, 1);
     }
 
-    private static void movePlayer(Map map, int row, int column) {
+    public static void movePlayer(Map map, int row, int column) {
        map.setLocation(map.getLocations()[row][column]);
        map.getLocation().setVisited(true);
        map.setCurrentRow(row);

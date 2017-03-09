@@ -13,8 +13,8 @@ import java.util.ArrayList;
  * @author David
  */
 public class Game implements Serializable{
-    private double currentRow;
-    private double currentColumn;
+    private int currentRow;
+    private int currentColumn;
     private double timeExpired;
     private double timeRemaining;
     
@@ -29,19 +29,19 @@ public class Game implements Serializable{
     public Game() {
     }
     
-    public double getCurrentRow() {
+    public int getCurrentRow() {
         return currentRow;
     }
 
-    public void setCurrentRow(double currentRow) {
+    public void setCurrentRow(int currentRow) {
         this.currentRow = currentRow;
     }
 
-    public double getCurrentColumn() {
+    public int getCurrentColumn() {
         return currentColumn;
     }
 
-    public void setCurrentColumn(double currentColumn) {
+    public void setCurrentColumn(int currentColumn) {
         this.currentColumn = currentColumn;
     }
 
