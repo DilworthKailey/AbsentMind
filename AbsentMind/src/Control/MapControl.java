@@ -14,9 +14,9 @@ import Model.Scene;
  */
 public class MapControl {
     public static Map createMap(){
-        Map map = new Map(3, 3);
+        Map map = new Map(5, 5);
         
-        Scene[] scenes = createScenes();
+        Scene[] scenes = GameControl.createScenes();
         
         GameControl.assignScenesToLocation(map, scenes);
         
@@ -27,11 +27,16 @@ public class MapControl {
         System.out.println("\n*** movetostart() called ***");
     }
 
-    private static Scene[] createScenes() {
-        System.out.println("\n*** createScenes() called ***");
-        return null;
+    static void movePlayertoStartingLocation(Map map) {
+        movePlayer(map, 0, 1);
     }
 
+    private static void movePlayer(Map map, int row, int column) {
+       map.setLocation(map.getLocations()[row][column]);
+       map.getLocation().setVisited(true);
+       map.setCurrentRow(row);
+       map.setCurrentColumn(column);
+    }
 
     
 }

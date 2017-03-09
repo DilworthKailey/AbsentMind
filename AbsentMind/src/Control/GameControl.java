@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Josh
+ * @author Kailey
  */
 public class GameControl {
 
@@ -59,6 +59,7 @@ public class GameControl {
         
         // move actors to starting position in the map
         MapControl.moveNPCtoStartingLocation(map);
+        MapControl.movePlayertoStartingLocation(map);
         
     } 
 
@@ -135,7 +136,7 @@ public class GameControl {
         finish;
     }
     
-    private static Scene[] createScenes() {
+    public static Scene[] createScenes() {
         
         Scene[] scenes = new Scene[SceneType.values().length];
         
@@ -143,8 +144,9 @@ public class GameControl {
         startingScene.setDescription(
                 "You find yourself on a crowded subway train, full of "
                 + "people coming home from the daily grind. Your head is"
-                + "pounding and nothing seems familiar, not even yourself"
-                + "or what you were doing. You are getting strange stares, "
+                + "pounding, you feel sun burnt and nothing seems familiar, "
+                + "not even yourself or what you were doing."
+                + "You are getting strange stares, "
                 + "especially from an old woman, clutching her pocket book"
                 + "in her lap. The train is headed northbound with a stop"
                 + "incoming in 15 minutes.");
@@ -172,7 +174,7 @@ public class GameControl {
         Scene firstSeatScene = new Scene();
         firstSeatScene.setDescription(
                      "To be filled at a later time.");
-        firstSeatScene.setDisplaySymbol(" 1stS ");
+        firstSeatScene.setDisplaySymbol(" 1S ");
         firstSeatScene.setBlocked(false);
         firstSeatScene.setTravelTime(15);
         scenes[SceneType.firstSeat.ordinal()] = firstSeatScene;
@@ -180,7 +182,7 @@ public class GameControl {
         Scene secondSeatScene = new Scene();
         secondSeatScene.setDescription(
                      "To be filled at a later time.");
-        secondSeatScene.setDisplaySymbol(" 2ndS ");
+        secondSeatScene.setDisplaySymbol(" 2S ");
         secondSeatScene.setBlocked(false);
         secondSeatScene.setTravelTime(15);
         scenes[SceneType.secondSeat.ordinal()] = secondSeatScene;
@@ -252,7 +254,7 @@ public class GameControl {
         Scene deskScene = new Scene();
         deskScene.setDescription(
                      "To be filled at a later time.");
-        deskScene.setDisplaySymbol(" DSK ");
+        deskScene.setDisplaySymbol(" DK ");
         deskScene.setBlocked(false);
         deskScene.setTravelTime(15);
         scenes[SceneType.desk.ordinal()] = deskScene;
@@ -276,7 +278,7 @@ public class GameControl {
         Scene gymScene = new Scene();
         gymScene.setDescription(
                      "To be filled at a later time.");
-        gymScene.setDisplaySymbol(" GYM ");
+        gymScene.setDisplaySymbol(" GM ");
         gymScene.setBlocked(false);
         gymScene.setTravelTime(15);
         scenes[SceneType.gym.ordinal()] = gymScene;
@@ -329,13 +331,6 @@ public class GameControl {
         labScene.setTravelTime(15);
         scenes[SceneType.lab.ordinal()] = labScene;
         
-        Scene bathroomScene = new Scene();
-        bathroomScene.setDescription(
-                     "To be filled at a later time.");
-        bathroomScene.setDisplaySymbol(" BR ");
-        bathroomScene.setBlocked(false);
-        bathroomScene.setTravelTime(15);
-        scenes[SceneType.bathroom.ordinal()] = bathroomScene;
         
         Scene basementOfficeScene = new Scene();
         basementOfficeScene.setDescription(
@@ -384,9 +379,8 @@ public class GameControl {
         locations[2][4].setScene(scenes[SceneType.basementEntrance.ordinal()]);
         locations[1][4].setScene(scenes[SceneType.diningHall.ordinal()]);
         locations[0][4].setScene(scenes[SceneType.lab.ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.bathroom.ordinal()]);
         locations[0][3].setScene(scenes[SceneType.basementOffice.ordinal()]);
-        locations[0][5].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.finish.ordinal()]);
     }
 
     

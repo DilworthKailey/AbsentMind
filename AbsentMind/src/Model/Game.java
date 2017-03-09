@@ -151,7 +151,7 @@ public class Game implements Serializable{
     }
 
     public void setMap(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.map = map;
     }
     
     

@@ -78,12 +78,13 @@ public class GameMenuView extends View {
         // retreive the game replace PiratesOfTheOpenSeas with your game name
         Game game = AbsentMind.getCurrentGame(); 
         Map map = game.getMap(); // retreive the map from game
-         Location[][] locations = map.getLocations(); // retreive the locations from map
+        
+        Location[][] locations = map.getLocations(); // retreive the locations from map
             // Build the heading of the map
             System.out.print("  |");
             for( int column = 0; column < locations[0].length; column++){
              // print col numbers to side of map
-            System.out.print("  " + column + " |"); 
+            System.out.print("   " + column + "  |"); 
             }
             // Now build the map.  For each row, show the column information
             System.out.println();
@@ -107,7 +108,7 @@ public class GameMenuView extends View {
                 if(locations[row][column].getScene() == null)
                 {
                      // No scene assigned here so use ?? for the symbol
-                     System.out.print(leftIndicator + "??" + rightIndicator);
+                     System.out.print(leftIndicator + " ?? " + rightIndicator);
                 }
                 else
                  System.out.print(leftIndicator
