@@ -189,7 +189,12 @@ public class GameControl {
         
         Scene hospitalLobbyScene = new Scene();
         hospitalLobbyScene.setDescription(
-                     "To be filled at a later time.");
+                     "The hospital is quiet this late in the night with only a "
+                      + "few doctors and nurses making the rounds in the "
+                             + "hallway. The waiting room has a slight minty "
+                             + "scent with chairs lined up for waiting and a "
+                             + "front desk with a receptionist busy on the "
+                             + "phone.");
         hospitalLobbyScene.setDisplaySymbol(" HL ");
         hospitalLobbyScene.setBlocked(false);
         hospitalLobbyScene.setTravelTime(15);
@@ -229,7 +234,10 @@ public class GameControl {
         
         Scene officeLobbyScene = new Scene();
         officeLobbyScene.setDescription(
-                     "To be filled at a later time.");
+                     "The newspaper offices are closed this late at night, but "
+                             + "the main doors into the lobby are unlocked and "
+                             + "a sole security guard is sitting behind a large "
+                             + "desk in the well-kept lobby.");
         officeLobbyScene.setDisplaySymbol(" OL ");
         officeLobbyScene.setBlocked(false);
         officeLobbyScene.setTravelTime(15);
@@ -253,7 +261,10 @@ public class GameControl {
         
         Scene deskScene = new Scene();
         deskScene.setDescription(
-                     "To be filled at a later time.");
+                     "The office is unkempt. There are piles of papers and file "
+                             + "boxes everywhere. The walls are covered with "
+                             + "notes and photos with strings of yarn connecting "
+                             + "them.");
         deskScene.setDisplaySymbol(" DK ");
         deskScene.setBlocked(false);
         deskScene.setTravelTime(15);
@@ -269,7 +280,13 @@ public class GameControl {
         
         Scene gymLobbyScene = new Scene();
         gymLobbyScene.setDescription(
-                     "To be filled at a later time.");
+                     "A three-floor, 10,000-square-foot facility that is open "
+                             + "24 hours. Its rows of of cardio equipment, "
+                             + "strength machines, free weights and medicine "
+                             + "balls are mostly unused at this hour, however. "
+                             + "There are a few late-night fitness enthusiasts "
+                             + "scattered throughout the building, but it is "
+                             + "mostly quiet.");
         gymLobbyScene.setDisplaySymbol(" GL ");
         gymLobbyScene.setBlocked(false);
         gymLobbyScene.setTravelTime(15);
@@ -356,31 +373,31 @@ public class GameControl {
     static void assignScenesToLocation(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
         
-        locations[0][0].setScene(scenes[SceneType.subwayStation.ordinal()]);
-        locations[0][1].setScene(scenes[SceneType.start.ordinal()]);
-        locations[0][2].setScene(scenes[SceneType.trainMap.ordinal()]);
-        locations[1][2].setScene(scenes[SceneType.firstSeat.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.subwayStation.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.start.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.trainMap.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.firstSeat.ordinal()]);
         locations[2][2].setScene(scenes[SceneType.secondSeat.ordinal()]);
-        locations[1][1].setScene(scenes[SceneType.hospitalLobby.ordinal()]);
-        locations[1][0].setScene(scenes[SceneType.waitingRoom.ordinal()]);
-        locations[2][0].setScene(scenes[SceneType.frontDesk.ordinal()]);
-        locations[3][0].setScene(scenes[SceneType.doctorOffice.ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.hospitalStation.ordinal()]);
-        locations[4][1].setScene(scenes[SceneType.officeLobby.ordinal()]);
-        locations[4][0].setScene(scenes[SceneType.elevators.ordinal()]);
-        locations[4][2].setScene(scenes[SceneType.thirdFloor.ordinal()]);
-        locations[4][3].setScene(scenes[SceneType.desk.ordinal()]);
-        locations[3][1].setScene(scenes[SceneType.officeStation.ordinal()]);
-        locations[4][4].setScene(scenes[SceneType.gymLobby.ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.gym.ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.lockerRoom.ordinal()]);
-        locations[3][2].setScene(scenes[SceneType.locker.ordinal()]);
-        locations[2][3].setScene(scenes[SceneType.basementDoor.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.basementEntrance.ordinal()]);
-        locations[1][4].setScene(scenes[SceneType.diningHall.ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.lab.ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.basementOffice.ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.hospitalLobby.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.waitingRoom.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.frontDesk.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.doctorOffice.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.hospitalStation.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.officeLobby.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.elevators.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.thirdFloor.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.desk.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.officeStation.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.gymLobby.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.gym.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.lockerRoom.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.locker.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.basementDoor.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.basementEntrance.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.diningHall.ordinal()]);
+        locations[0][0].setScene(scenes[SceneType.lab.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.basementOffice.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.finish.ordinal()]);
     }
 
     

@@ -85,7 +85,7 @@ public class ItemMenuView extends View{
         
         Game game = AbsentMind.getCurrentGame();
         ArrayList<Clue> clue = game.getClue();
-        
+        int count = InventoryControl.countClueList(clue);
         System.out.println("\n      LIST OF CLUES");
         line = new StringBuilder("                              ");
         line.insert(0, "DESCRIPTION");
@@ -97,6 +97,7 @@ public class ItemMenuView extends View{
             
             System.out.println(line.toString());
         }
+        System.out.println("You have found " + count + " clue(s).");
     }
 
     private void keyItems() {

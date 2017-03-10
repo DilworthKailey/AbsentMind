@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Model.Clue;
 import Model.NpcClue;
 import java.util.ArrayList;
 
@@ -42,4 +43,26 @@ public class InventoryControl {
 //            System.out.println( arr.get(i) );
 //        System.out.println();
 //    }
+    
+//    BEGIN
+//countClueList(ArrayList<Clue> arr){
+//	count = 0;
+//	for (i = 0; i < arr.size() – 1; i++) {
+//	count =+ 1;
+//	}
+// return count;
+//}
+//END
+    public static int countClueList(ArrayList<Clue> arr){
+        int count = 0;
+        for (int i = 0; i < arr.size() - 1; i++){
+            count += 1;
+        }
+        if(count < 0){
+            return -1;
+        }
+        return count;
+    }
+
+    
 }
