@@ -5,6 +5,8 @@
  */
 package Control;
 
+import Exception.AntidoteControlException;
+
 public class AntidoteControl {
     
     public static double calcWeightInKilograms(double weight) 

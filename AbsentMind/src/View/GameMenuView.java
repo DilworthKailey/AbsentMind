@@ -5,7 +5,7 @@
  */
 package View;
 
-import Control.AntidoteControlException;
+import Exception.AntidoteControlException;
 import Model.Game;
 import Model.Location;
 import Model.Map;

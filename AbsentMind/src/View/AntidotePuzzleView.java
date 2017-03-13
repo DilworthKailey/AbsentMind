@@ -7,7 +7,7 @@ package View;
 
 import java.util.Scanner;
 import Control.AntidoteControl;
-import Control.AntidoteControlException;
+import Exception.AntidoteControlException;
 
 /**
  *
@@ -54,8 +54,11 @@ class AntidotePuzzleView {
             
             selection = keyboard.nextLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
+            try {
             weight = Integer.parseInt(selection);
-            
+            } catch (NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number.");
+            }
             if (weight <= 30) { // weight less than or equal to 30?
             throw new AntidoteControlException("Weight must be greater than 30 lbs.");
         }

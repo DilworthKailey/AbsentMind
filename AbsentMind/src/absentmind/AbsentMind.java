@@ -47,7 +47,13 @@ public class AbsentMind {
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
+        try {
         startProgramView.displayStartProgramView();
+        } catch (Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.displayStartProgramView();
+        }
         
 //        double weightTest = AntidoteControl.calcWeightInKilograms(50);
 //        System.out.println("Calc weight equals " + weightTest);
