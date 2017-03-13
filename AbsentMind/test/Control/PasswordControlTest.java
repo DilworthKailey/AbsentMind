@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Exception.PasswordControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,11 +22,11 @@ public class PasswordControlTest {
      * Test of setPassword method, of class PasswordControl.
      */
     @Test
-    public void testSetPassword() {
+    public void testSetPassword() throws PasswordControlException {
         System.out.println("setPassword");
         
         System.out.println("\tTest case #1");
-        String playerName = "freddy";
+        String playerName = "fred";
         PasswordControl instance = new PasswordControl();
         double expResult = 144721.0;
         double result = instance.setPassword(playerName);

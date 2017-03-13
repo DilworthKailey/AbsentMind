@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Exception.MapControlException;
 import Model.Clue;
 import Model.Player;
 import absentmind.AbsentMind;
@@ -37,7 +38,7 @@ public class GameControl {
         
     }
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws MapControlException {
         
         Game game = new Game(); // create new game
         AbsentMind.setCurrentGame(game); // save in AbsentMind

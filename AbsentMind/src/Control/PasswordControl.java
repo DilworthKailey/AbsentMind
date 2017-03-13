@@ -5,13 +5,15 @@
  */
 package Control;
 
+import Exception.PasswordControlException;
+
 /**
  *
  * @author Kailey
  */
 public class PasswordControl {
     
-    public double setPassword(String playerName){
+    public double setPassword(String playerName) throws PasswordControlException{
         char first_letter = playerName.charAt(0);
         char second_letter = playerName.charAt(1);
         char third_letter = playerName.charAt(2);
@@ -193,7 +195,7 @@ public class PasswordControl {
            password = password + 100000;
         }
         if (password > 999999){
-           password = -1; 
+           throw new PasswordControlException("Input must be less than 1,000,000.");
         }
         
         return password;
