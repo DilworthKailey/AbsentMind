@@ -6,7 +6,10 @@
 package View;
 
 import Control.GameControl;
+import Exception.MapControlException;
 import absentmind.AbsentMind;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,8 +47,14 @@ public class MainMenuView extends View {
             case "L": // load game
                 this.startExistingGame();
                 break;
-            case "R": // restart game
+            case "R": {
+            try {
+                // restart game
                 this.startNewGame();
+            } catch (MapControlException me) {
+                System.out.println(me.getMessage());
+            }
+        }
                 break;
             case "H": // display help menu
                 this.displayHelpMenu();
@@ -69,7 +78,7 @@ public class MainMenuView extends View {
         System.out.println("\n*** startExistingGame function called ***");
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException {
         GameControl.createNewGame(AbsentMind.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();

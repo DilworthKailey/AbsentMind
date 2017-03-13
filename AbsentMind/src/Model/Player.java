@@ -18,7 +18,6 @@ public class Player implements Serializable{
     private double bestTime;
     private String endingType;
     
-    private Game game;
 
     public Player() {
     }
@@ -47,14 +46,6 @@ public class Player implements Serializable{
 
     public void setEndingType(String endingType) {
         this.endingType = endingType;
-    }
-
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
     }
     
     

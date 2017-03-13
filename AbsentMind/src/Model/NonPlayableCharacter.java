@@ -25,8 +25,6 @@ public enum NonPlayableCharacter implements Serializable{
     private final String description;
 
     
-    private Game game;
-    private Scene scene;
 
     NonPlayableCharacter(String description) {
         this.description = description;
@@ -34,22 +32,6 @@ public enum NonPlayableCharacter implements Serializable{
 
     public String getDescription() {
         return description;
-    }
-
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public Scene getScene() {
-        return scene;
-    }
-
-    public void setScene(Scene scene) {
-        this.scene = scene;
     }
    
     

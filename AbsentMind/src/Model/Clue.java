@@ -18,8 +18,7 @@ public class Clue implements Serializable{
     private String clueType;
     private String description;
     
-    private Game game;
-    private Scene[] scene;
+
             
 
 //    public Clue(String description) {
@@ -57,21 +56,7 @@ public class Clue implements Serializable{
         this.description = description;
     }
 
-    public Game getGame() {
-        return game;
-    }
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public Scene[] getScene() {
-        return scene;
-    }
-
-    public void setScene(Scene[] scene) {
-        this.scene = scene;
-    }
     
     
 

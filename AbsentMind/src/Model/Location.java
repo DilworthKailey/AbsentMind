@@ -21,7 +21,7 @@ public class Location implements Serializable {
     
     private Scene scene;
     private ArrayList<NonPlayableCharacter> nonPlayableCharacter;
-    private Map[] map;
+
 
     public Location() {
     }
@@ -60,14 +60,6 @@ public class Location implements Serializable {
 
     public void setScene(Scene scene) {
         this.scene = scene;
-    }
-
-    public Map[] getMap() {
-        return map;
-    }
-
-    public void setMap(Map[] map) {
-        this.map = map;
     }
 
     public ArrayList<NonPlayableCharacter> getNonPlayableCharacter() {
