@@ -28,7 +28,7 @@ public class MapControl {
     }
 
     static void movePlayertoStartingLocation(Map map) {
-        movePlayer(map, 0, 1);
+        movePlayer(map, 3, 0);
     }
 
     public static void movePlayer(Map map, int row, int column) {

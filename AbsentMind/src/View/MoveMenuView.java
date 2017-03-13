@@ -6,8 +6,11 @@
 package View;
 
 import Control.MapControl;
+import Control.MapControlException;
 import Model.Map;
 import absentmind.AbsentMind;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,71 +39,74 @@ public class MoveMenuView extends View {
      @Override
      public boolean doAction(String value) {
         
-        value = value.toUpperCase(); // convert choice to upper case
-        
-        switch (value){
-            case "N": // move to new location
-                return this.north();
-            case "E": // view map
-                return this.east();
-            case "S": // view map
-                return this.south();
-            case "W": // view map
-                return this.west();
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
+         try {
+             value = value.toUpperCase(); // convert choice to upper case
+             
+             switch (value){
+                 case "N": // move to new location
+                     return this.north();
+                 case "E": // view map
+                     return this.east();
+                 case "S": // view map
+                     return this.south();
+                 case "W": // view map
+                     return this.west();
+                 default:
+                     System.out.println("\n*** Not a valid command *** Try again");
+                     break;
+             }
+         } catch (MapControlException me) {
+             System.out.println(me.getMessage());
+         }
+         return false;
         }
 
-    private boolean north() {
+    private boolean north() 
+            throws MapControlException {
         //System.out.println("\n*** north function called ***");
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentRow() == map.getRowCount() - 5)
-            System.out.println("\n*** You cannot move further North");
+            throw new MapControlException("\n*** You cannot move further North");
         else {
             MapControl.movePlayer(map, map.getCurrentRow() - 1, map.getCurrentColumn());
             return true;
         }
-        return false;
     }
 
-    private boolean east() {
+    private boolean east() 
+            throws MapControlException {
         //System.out.println("\n*** east function called ***");
         Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentColumn() == map.getColumnCount() - 1)
-            System.out.println("\n*** You cannot move further East");
+            throw new MapControlException("\n*** You cannot move further East");
         else {
             MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() + 1);
             return true;
         }
-        return false;
     }
 
-    private boolean south() {
+    private boolean south() 
+            throws MapControlException {
         //System.out.println("\n*** south function called ***");
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentRow() == map.getRowCount() - 1)
-            System.out.println("\n*** You cannot move further South");
+            throw new MapControlException("\n*** You cannot move further South");
         else {
             MapControl.movePlayer(map, map.getCurrentRow() + 1, map.getCurrentColumn());
             return true;
         }
-        return false;
     }
 
-    private boolean west() {
+    private boolean west() 
+            throws MapControlException {
         //System.out.println("\n*** west function called ***");
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentColumn() == map.getColumnCount() - 5)
-            System.out.println("\n*** You cannot move further West");
+            throw new MapControlException("\n*** You cannot move further West");
         else {
             MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() - 1);
             return true;
         }
-        return false;
     }
     
 }
