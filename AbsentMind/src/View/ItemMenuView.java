@@ -6,6 +6,7 @@
 package View;
 
 import Control.InventoryControl;
+import Exception.MenuException;
 import Model.Clue;
 import Model.Game;
 import Model.KeyItem;
@@ -13,6 +14,8 @@ import Model.NpcClue;
 import absentmind.AbsentMind;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,26 +42,29 @@ public class ItemMenuView extends View{
      
      public boolean doAction(String value) {
         
-        value = value.toUpperCase(); // convert choice to upper case
-        
-        switch (value){
-            case "C": // see character notes
-                this.clues();
-                break;
-            case "K": // see inventory list
-                this.keyItems();
-                break;
-            case "P": // see action notes
-                this.people();
-                break;
-            case "Q": // close menu
-                 return true;
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
+        try {
+            value = value.toUpperCase(); // convert choice to upper case
+            
+            switch (value){
+                case "C": // see character notes
+                    this.clues();
+                    break;
+                case "K": // see inventory list
+                    this.keyItems();
+                    break;
+                case "P": // see action notes
+                    this.people();
+                    break;
+                case "Q": // close menu
+                    return true;
+                default:
+                    throw new MenuException("\n*** Invalid selection. Please try again.");
+            }
+            
+            
+        } catch (MenuException ex) {
+            System.out.println(ex.getMessage());
+        }return false;
         }
 
     private void people() {

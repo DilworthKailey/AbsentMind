@@ -6,6 +6,7 @@
 package View;
 
 import Exception.AntidoteControlException;
+import Exception.MenuException;
 import Model.Game;
 import Model.Location;
 import Model.Map;
@@ -42,42 +43,45 @@ public class GameMenuView extends View {
      
      public boolean doAction(String value) {
         
-        value = value.toUpperCase(); // convert choice to upper case
-        
-        switch (value){
-            case "M": // move to new location
-                this.move();
+        try {
+            value = value.toUpperCase(); // convert choice to upper case
+            
+            switch (value){
+                case "M": // move to new location
+                    this.move();
+                    break;
+                case "V": // view map
+                    this.viewMap();
+                    break;
+                case "S": // see player/game status
+                    this.status();
+                    break;
+                case "I": // check inventory
+                    this.itemMenu();
+                    break;
+                case "E": // examine command
+                    this.examine();
+                    break;
+                case "W": // test weight puzzle
+                    this.weight();
+                    break;
+                case "A": {
+                    try {
+                        // test antidote puzzle
+                        this.antidote();
+                    } catch (AntidoteControlException me) {
+                        System.out.println(me.getMessage());
+                    }
+                }
                 break;
-            case "V": // view map
-                this.viewMap();
-                break;
-            case "S": // see player/game status
-                this.status();
-                break;
-            case "I": // check inventory
-                this.itemMenu();
-                break;
-            case "E": // examine command
-                this.examine();
-                break;
-            case "W": // test weight puzzle
-                this.weight();
-                break;
-            case "A": {
-            try {
-                // test antidote puzzle
-                this.antidote();
-            } catch (AntidoteControlException me) {
-                System.out.println(me.getMessage());
+                default:
+                    throw new MenuException("\n*** Invalid selection. Please try again.");
             }
-        }
-                break;
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
+
+            
+        } catch (MenuException ex) {
+            System.out.println(ex.getMessage());
+        }return false;
         }
 
     private void move() {

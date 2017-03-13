@@ -72,7 +72,11 @@ public class WeightPuzzleView {
             
             selection = keyboard.nextLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
+            try {
             choice1 = Integer.parseInt(selection);
+            } catch (NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number.");
+            }
             
             if (choice1 > 8 || choice1 < 1){
                 System.out.println("Invalid selection, try again.");
@@ -96,7 +100,11 @@ public class WeightPuzzleView {
             
             selection = keyboard.nextLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
+            try {
             choice2 = Integer.parseInt(selection);
+            } catch (NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number.");
+            }
             
              if (choice2 > 8 || choice2 < 0){
                 System.out.println("Invalid selection, try again.");
@@ -133,7 +141,11 @@ public class WeightPuzzleView {
             
             selection = keyboard.nextLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
+            try {
             choice3 = Integer.parseInt(selection);
+            } catch (NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number.");
+            }
             
             if (choice3 > 8 || choice3 < 1){
                 System.out.println("Invalid selection, try again.");
@@ -157,7 +169,11 @@ public class WeightPuzzleView {
             
             selection = keyboard.nextLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
+            try {
             choice4 = Integer.parseInt(selection);
+            } catch (NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number.");
+            }
             
              if (choice4 > 8 || choice4 < 0){
                 System.out.println("Invalid selection, try again.");

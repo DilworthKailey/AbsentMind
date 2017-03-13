@@ -5,7 +5,10 @@
  */
 package View;
 
+import Exception.MenuException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,24 +34,27 @@ public class HelpMenuView extends View {
     @Override
     public boolean doAction(String value) {
         
-        value = value.toUpperCase(); // convert choice to upper case
-        
-        switch (value){
-            case "G": // goal of game
-                this.goalOfGame();
-                break;
-            case "H": // how to move
-                this.howToMove();
-                break;
-            case "F": // finding clues
-                this.findingClues();
-                break;
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
+        try {
+            value = value.toUpperCase(); // convert choice to upper case
+            
+            switch (value){
+                case "G": // goal of game
+                    this.goalOfGame();
+                    break;
+                case "H": // how to move
+                    this.howToMove();
+                    break;
+                case "F": // finding clues
+                    this.findingClues();
+                    break;
+                default:
+                    throw new MenuException("\n*** Invalid selection. Please try again.");
+            }
+            
+            
+        } catch (MenuException ex) {
+            System.out.println(ex.getMessage());
+        }return false;
         }
 
     private void goalOfGame() {

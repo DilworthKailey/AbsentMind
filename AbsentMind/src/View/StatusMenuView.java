@@ -5,6 +5,10 @@
  */
 package View;
 
+import Exception.MenuException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Kailey
@@ -27,21 +31,24 @@ public class StatusMenuView extends View{
      @Override
      public boolean doAction(String value) {
         
-        value = value.toUpperCase(); // convert choice to upper case
-        
-        switch (value){
-            case "G": // move to new location
-                this.gameStatus();
-                break;
-            case "T": // view map
-                this.time();
-                break;
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
+         try {
+             value = value.toUpperCase(); // convert choice to upper case
+             
+             switch (value){
+                 case "G": // move to new location
+                     this.gameStatus();
+                     break;
+                 case "T": // view map
+                     this.time();
+                     break;
+                 default:
+                     throw new MenuException("\n*** Invalid selection. Please try again.");
+             }
+             
+             
+         } catch (MenuException ex) {
+             System.out.println(ex.getMessage());
+         }return false;
         }
 
     private void time() {

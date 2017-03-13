@@ -7,6 +7,7 @@ package View;
 
 import Control.GameControl;
 import Exception.MapControlException;
+import Exception.MenuException;
 import absentmind.AbsentMind;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,36 +39,39 @@ public class MainMenuView extends View {
     @Override
     public boolean doAction(String value) {
         
-        value = value.toUpperCase(); // convert choice to upper case
-        
-        switch (value){
-            case "S": // save game
-                this.saveGame();
+        try {
+            value = value.toUpperCase(); // convert choice to upper case
+            
+            switch (value){
+                case "S": // save game
+                    this.saveGame();
+                    break;
+                case "L": // load game
+                    this.startExistingGame();
+                    break;
+                case "R": {
+                    try {
+                        // restart game
+                        this.startNewGame();
+                    } catch (MapControlException me) {
+                        System.out.println(me.getMessage());
+                    }
+                }
                 break;
-            case "L": // load game
-                this.startExistingGame();
-                break;
-            case "R": {
-            try {
-                // restart game
-                this.startNewGame();
-            } catch (MapControlException me) {
-                System.out.println(me.getMessage());
+                case "H": // display help menu
+                    this.displayHelpMenu();
+                    break;
+                case "C": //Quit Menu
+                    this.closeMenu();
+                    break;
+                default:
+                    throw new MenuException("\n*** Invalid selection. Please try again.");
             }
-        }
-                break;
-            case "H": // display help menu
-                this.displayHelpMenu();
-                break;
-            case "C": //Quit Menu
-                this.closeMenu();
-                break;
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
+
+            
+        } catch (MenuException ex) {
+            System.out.println(ex.getMessage());
+        }return false;
         }
 
     private void saveGame() {

@@ -5,6 +5,10 @@
  */
 package View;
 
+import Exception.MenuException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author J.D.
@@ -27,21 +31,24 @@ public class ExamineMenuView extends View{
      @Override
      public boolean doAction(String value) {
         
-        value = value.toUpperCase(); // convert choice to upper case
-        
-        switch (value){
-            case "P": // Examine Clue
-                this.pickUpItem();
-                break;
-            case "T": // Interact with NPC
-                this.talk();
-                break;
-            default:
-                System.out.println("\n*** Not a valid command *** Try again");
-                break;
-        }
-        
-            return false;
+         try {
+             value = value.toUpperCase(); // convert choice to upper case
+             
+             switch (value){
+                 case "P": // Examine Clue
+                     this.pickUpItem();
+                     break;
+                 case "T": // Interact with NPC
+                     this.talk();
+                     break;
+                 default:
+                     throw new MenuException("\n*** Invalid selection. Please try again.");
+             }
+             
+             
+         } catch (MenuException ex) {
+             System.out.println(ex.getMessage());
+         }return false;
         }
 
     private void talk() {
