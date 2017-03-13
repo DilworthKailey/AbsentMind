@@ -5,11 +5,14 @@
  */
 package View;
 
+import Control.AntidoteControlException;
 import Model.Game;
 import Model.Location;
 import Model.Map;
 import absentmind.AbsentMind;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,6 +31,7 @@ public class GameMenuView extends View {
                 + "\nS - Status"
                 + "\nI - Item Menu"
                 + "\nE - Examine"
+                + "\nA - Antidote Puzzle"
                 + "\nW - Weight Puzzle"
                 + "\nQ - Return to Main Menu "
                 + "\n-------------------------------------");
@@ -58,6 +62,15 @@ public class GameMenuView extends View {
                 break;
             case "W": // test weight puzzle
                 this.weight();
+                break;
+            case "A": {
+            try {
+                // test antidote puzzle
+                this.antidote();
+            } catch (AntidoteControlException me) {
+                System.out.println(me.getMessage());
+            }
+        }
                 break;
             default:
                 System.out.println("\n*** Not a valid command *** Try again");
@@ -142,6 +155,11 @@ public class GameMenuView extends View {
     private void weight() {
          WeightPuzzleView weightpuzz = new WeightPuzzleView();
          weightpuzz.displayWeightPuzzleView();
+    }
+
+    private void antidote() throws AntidoteControlException {
+        AntidotePuzzleView antidotePuzz = new AntidotePuzzleView();
+        antidotePuzz.displayAntidotePuzzle();
     }
 
     

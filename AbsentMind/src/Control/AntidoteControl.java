@@ -7,20 +7,13 @@ package Control;
 
 public class AntidoteControl {
     
-    public static double calcWeightInKilograms(double weight) {
+    public static double calcWeightInKilograms(double weight) 
+                            throws AntidoteControlException {
         
         /**
         *   calcWeightInKilograms() completed as group project:
         *   Dave Irwin, J.D. Jensen, Kailey Dilworth
         **/
-        
-        if (weight <= 30) { // weight less than or equal to 30?
-            return -2;
-        }
-        
-        if (weight >= 1000) { // weight greater than or equal to 1000?
-            return -3;
-        }
                       
         double weightKilo = weight * 0.45359237; // conversion factor to kilos
         
@@ -28,18 +21,19 @@ public class AntidoteControl {
     
     }
     
-    public static double calcDosage(double weightKilo) {
+    public static double calcDosage(double weightKilo) 
+            throws AntidoteControlException {
         
         /**
         *   calcDosage() completed by Dave Irwin as individual project
         **/
         
         if (weightKilo < 13.61) {
-            return - 2;
+            throw new AntidoteControlException("Weight must be greater than 30 lbs.");
         }
         
         if (weightKilo > 453.59) {
-            return -3;
+            throw new AntidoteControlException("Weight must be less than 1000 lbs.");
         }
         
         int dosage = (int)((Math.round(weightKilo * 5))); // round & cast to int
