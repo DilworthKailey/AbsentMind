@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class Player implements Serializable{
     
-    private String name;
+    public String name;
     private double bestTime;
     private String endingType;
     

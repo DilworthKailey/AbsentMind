@@ -7,6 +7,7 @@ package View;
 
 import Exception.AntidoteControlException;
 import Exception.MenuException;
+import Exception.PasswordControlException;
 import Model.Game;
 import Model.Location;
 import Model.Map;
@@ -34,6 +35,7 @@ public class GameMenuView extends View {
                 + "\nE - Examine"
                 + "\nA - Antidote Puzzle"
                 + "\nW - Weight Puzzle"
+                + "\nP - Password Puzzle"
                 + "\nQ - Return to Main Menu "
                 + "\n-------------------------------------");
         
@@ -70,6 +72,14 @@ public class GameMenuView extends View {
                         // test antidote puzzle
                         this.antidote();
                     } catch (AntidoteControlException me) {
+                        System.out.println(me.getMessage());
+                    }
+                }
+                case "P": {
+                    try {
+                        // test antidote puzzle
+                        this.password();
+                    } catch (PasswordControlException me) {
                         System.out.println(me.getMessage());
                     }
                 }
@@ -164,6 +174,11 @@ public class GameMenuView extends View {
     private void antidote() throws AntidoteControlException {
         AntidotePuzzleView antidotePuzz = new AntidotePuzzleView();
         antidotePuzz.displayAntidotePuzzle();
+    }
+    
+    private void password() throws PasswordControlException {
+        PasswordPuzzleView passwordPuzz = new PasswordPuzzleView();
+        passwordPuzz.displayPasswordPuzzle();
     }
 
     

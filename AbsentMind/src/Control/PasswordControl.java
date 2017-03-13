@@ -6,6 +6,8 @@
 package Control;
 
 import Exception.PasswordControlException;
+import Model.Player;
+import absentmind.AbsentMind;
 
 /**
  *
@@ -13,7 +15,7 @@ import Exception.PasswordControlException;
  */
 public class PasswordControl {
     
-    public double setPassword(String playerName) throws PasswordControlException{
+    public static double setPassword(String playerName) throws PasswordControlException{
         char first_letter = playerName.charAt(0);
         char second_letter = playerName.charAt(1);
         char third_letter = playerName.charAt(2);
