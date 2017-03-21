@@ -63,7 +63,7 @@ public class ItemMenuView extends View{
             
             
         } catch (MenuException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }return false;
         }
 
@@ -73,16 +73,16 @@ public class ItemMenuView extends View{
         Game game = AbsentMind.getCurrentGame();
         ArrayList<NpcClue> npcClue = game.getNpcClue();
         InventoryControl.doNpcSort(npcClue);
-        System.out.println("\n      LIST OF CLUES");
+        this.console.println("\n      LIST OF CLUES");
         line = new StringBuilder("                              ");
         line.insert(0, "DESCRIPTION");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (NpcClue item : npcClue) {
             line = new StringBuilder("                          ");
             line.insert(0, item.getDescription());
             
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
     }
 
@@ -92,18 +92,18 @@ public class ItemMenuView extends View{
         Game game = AbsentMind.getCurrentGame();
         ArrayList<Clue> clue = game.getClue();
         int count = InventoryControl.countClueList(clue);
-        System.out.println("\n      LIST OF CLUES");
+        this.console.println("\n      LIST OF CLUES");
         line = new StringBuilder("                              ");
         line.insert(0, "DESCRIPTION");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (Clue item : clue) {
             line = new StringBuilder("                          ");
             line.insert(0, item.getDescription());
             
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
-        System.out.println("You have found " + count + " clue(s).");
+        this.console.println("You have found " + count + " clue(s).");
     }
 
     private void keyItems() {
@@ -112,16 +112,16 @@ public class ItemMenuView extends View{
         Game game = AbsentMind.getCurrentGame();
         ArrayList<KeyItem> keyItem = game.getKeyItem();
         
-        System.out.println("\n      LIST OF KEY ITEMS");
+        this.console.println("\n      LIST OF KEY ITEMS");
         line = new StringBuilder("                              ");
         line.insert(0, "DESCRIPTION");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (KeyItem item : keyItem) {
             line = new StringBuilder("                          ");
             line.insert(0, item.getDescription());
             
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
     }
     

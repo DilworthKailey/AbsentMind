@@ -8,6 +8,9 @@ package View;
 import java.util.Scanner;
 import Control.AntidoteControl;
 import Exception.AntidoteControlException;
+import absentmind.AbsentMind;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -16,6 +19,9 @@ import Exception.AntidoteControlException;
 class AntidotePuzzleView {
     
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = AbsentMind.getInFile();
+    protected final PrintWriter console = AbsentMind.getOutFile();
     
     public AntidotePuzzleView() {
     
@@ -44,20 +50,23 @@ class AntidotePuzzleView {
     private int getWeight() 
             throws AntidoteControlException {
         this.promptMessage = "\nPlease enter your weight.";
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+
         boolean valid = false;
         String selection = null;
         int weight = 0;
         
+        try{
+        
         while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            selection = keyboard.nextLine(); // get next line typed on keyboard
+            selection = keyboard.readLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
             try {
             weight = Integer.parseInt(selection);
             } catch (NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
             }
             if (weight <= 30) { // weight less than or equal to 30?
             throw new AntidoteControlException("Weight must be greater than 30 lbs.");
@@ -68,6 +77,10 @@ class AntidotePuzzleView {
         }
             else valid = true;
         }
+        }catch (Exception e){
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
         return weight; 
     }
 
@@ -75,7 +88,7 @@ class AntidotePuzzleView {
             throws AntidoteControlException {
         
         double dosage = AntidoteControl.calcDosage(weightKilo);
-        System.out.println("\nThe dosage is " + dosage + "mg.");
+        this.console.println("\nThe dosage is " + dosage + "mg.");
         
         return true;
     }

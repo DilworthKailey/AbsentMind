@@ -52,18 +52,19 @@ public class MoveMenuView extends View {
                  case "W": // view map
                      return this.west();
                  default:
-                     System.out.println("\n*** Not a valid command *** Try again");
+                     ErrorView.display(this.getClass().getName(),
+                             "\n*** Not a valid command *** Try again");
                      break;
              }
          } catch (MapControlException me) {
-             System.out.println(me.getMessage());
+             ErrorView.display(this.getClass().getName(),
+                     "Error reading input: " + me.getMessage());
          }
          return false;
         }
 
     private boolean north() 
             throws MapControlException {
-        //System.out.println("\n*** north function called ***");
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentRow() == map.getRowCount() - 5)
             throw new MapControlException("\n*** You cannot move further North");
@@ -75,7 +76,6 @@ public class MoveMenuView extends View {
 
     private boolean east() 
             throws MapControlException {
-        //System.out.println("\n*** east function called ***");
         Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentColumn() == map.getColumnCount() - 1)
             throw new MapControlException("\n*** You cannot move further East");
@@ -87,7 +87,6 @@ public class MoveMenuView extends View {
 
     private boolean south() 
             throws MapControlException {
-        //System.out.println("\n*** south function called ***");
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentRow() == map.getRowCount() - 1)
             throw new MapControlException("\n*** You cannot move further South");
@@ -99,7 +98,6 @@ public class MoveMenuView extends View {
 
     private boolean west() 
             throws MapControlException {
-        //System.out.println("\n*** west function called ***");
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentColumn() == map.getColumnCount() - 5)
             throw new MapControlException("\n*** You cannot move further West");

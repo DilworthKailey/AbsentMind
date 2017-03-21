@@ -7,6 +7,9 @@ package View;
 
 import Control.GameControl;
 import Model.Player;
+import absentmind.AbsentMind;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -16,6 +19,9 @@ import java.util.Scanner;
 public class StartProgramView {
     
         private String promptMessage;
+        
+        protected final BufferedReader keyboard = AbsentMind.getInFile();
+        protected final PrintWriter console = AbsentMind.getOutFile();
     
         public StartProgramView() {
             
@@ -27,7 +33,7 @@ public class StartProgramView {
 
     private void displayBanner() {
       
-        System.out.println(
+        this.console.println(
                 "\n********************************************"
                +"\n*                                          *"
                +"\n*Welcome to Absent Mind.                   *"
@@ -63,28 +69,32 @@ public class StartProgramView {
 
     private String getPlayerName() {
        
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = "";
         boolean valid = false;
-        
+        try{
         while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = keyboard.readLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
             
             if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value must be at least 1 character");
+                ErrorView.display(this.getClass().getName(),
+                        "\nInvalid value: value must be at least 1 character");
                 continue;
             }
                 break; // end the loop
-            }        
+            } 
+        }catch (Exception e){
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
         return value;
     }
 
     private boolean doAction(String playerName) {
         if (playerName.length() < 4){
-            System.out.println("\nInvalid player name: "
+            this.console.println("\nInvalid player name: "
                     + "The name must be greater than three characters in length.");
             return false;
         }
@@ -93,7 +103,7 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playerName);
         
         if (player == null) {
-            System.out.println("\nError creating the player.");
+            this.console.println("\nError creating the player.");
             return false;
         }
         
@@ -106,7 +116,7 @@ public class StartProgramView {
     private void displayNextView(Player player) {
         
         // display a custom welcome message
-        System.out.println("\n======================================"
+        this.console.println("\n======================================"
                           + "\n Welcome to Absent Mind " + player.getName() + "!"
                           + "\n=====================================");
         // Create MainMenuView object

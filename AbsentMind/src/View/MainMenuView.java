@@ -54,7 +54,7 @@ public class MainMenuView extends View {
                         // restart game
                         this.startNewGame();
                     } catch (MapControlException me) {
-                        System.out.println(me.getMessage());
+                        this.console.println(me.getMessage());
                     }
                 }
                 break;
@@ -70,16 +70,35 @@ public class MainMenuView extends View {
 
             
         } catch (MenuException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }return false;
         }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+        this.console.println("\n\nEnter a name for your save file"
+                + " to be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.saveGame(AbsentMind.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+        this.console.println("\n\nEnter the name you set for your save file"
+                + "  to be loaded.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void startNewGame() throws MapControlException {
@@ -96,7 +115,7 @@ public class MainMenuView extends View {
     }
 
     private void closeMenu() {
-        System.out.println("\n*** closeMenu function called ***");
+        this.console.println("\n*** closeMenu function called ***");
     }
     
     

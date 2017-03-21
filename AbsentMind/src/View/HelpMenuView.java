@@ -53,22 +53,22 @@ public class HelpMenuView extends View {
             
             
         } catch (MenuException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }return false;
         }
 
     private void goalOfGame() {
-        System.out.println("\nExplore locations, find clues, and regain your memory. There is a time limit you need to reach each area.");
+        this.console.println("\nExplore locations, find clues, and regain your memory. There is a time limit you need to reach each area.");
     
     }
 
     private void howToMove() {
-        System.out.println("\nUse the Game Menu to move to each location using the directions given to you. You can only move in directions that are available.");
+        this.console.println("\nUse the Game Menu to move to each location using the directions given to you. You can only move in directions that are available.");
 
     }
 
     private void findingClues() {
-        System.out.println("\nIn the Game Menu, use the Examine command to get a better feel for your area; directions you can move, hints, people and objects. Interact with these items to find clues and gather information. Clues, Key Items, and character profiles will be stored in your inventory.");
+        this.console.println("\nIn the Game Menu, use the Examine command to get a better feel for your area; directions you can move, hints, people and objects. Interact with these items to find clues and gather information. Clues, Key Items, and character profiles will be stored in your inventory.");
     
     }
    

@@ -47,16 +47,16 @@ public class ExamineMenuView extends View{
              
              
          } catch (MenuException ex) {
-             System.out.println(ex.getMessage());
+             this.console.println(ex.getMessage());
          }return false;
         }
 
     private void talk() {
-        System.out.println("\n*** Talk function called ***");
+        this.console.println("\n*** Talk function called ***");
     }
 
     private void pickUpItem() {
-        System.out.println("\n*** Object function called ***");
+        this.console.println("\n*** Object function called ***");
     }
     
 }

@@ -15,6 +15,12 @@ import Model.Map;
 import Model.NonPlayableCharacter;
 import Model.KeyItem;
 import View.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -25,6 +31,11 @@ public class AbsentMind {
     
     private static Game currentGame = null;
     private static Player player = null;
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -41,19 +52,73 @@ public class AbsentMind {
     public static void setPlayer(Player player) {
         AbsentMind.player = player;
     }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        AbsentMind.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        AbsentMind.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        AbsentMind.logFile = logFile;
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        StartProgramView startProgramView = new StartProgramView();
+        
         try {
-        startProgramView.displayStartProgramView();
-        } catch (Throwable te){
-            System.out.println(te.getMessage());
-            te.printStackTrace();
+            AbsentMind.inFile = 
+                       new BufferedReader(new InputStreamReader(System.in));
+            AbsentMind.outFile = new PrintWriter(System.out, true);
+            
+            String filePath = "log.txt";
+            AbsentMind.logFile = new PrintWriter(filePath);
+           
+            StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
+            return;
+        } catch (Throwable te){
+            System.out.println("Exception: " + te.toString() +
+                               "\nCause: " + te.getCause() + 
+                               "\nMessage: " + te.getMessage());
+            te.printStackTrace();
         }
+        
+        finally {
+            try {
+                if(AbsentMind.inFile != null)
+                   AbsentMind.inFile.close();
+                
+                if(AbsentMind.outFile != null)
+                   AbsentMind.outFile.close();
+                
+                if(AbsentMind.logFile != null)
+                   AbsentMind.logFile.close();
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
+        }
+        
         
 //        double weightTest = AntidoteControl.calcWeightInKilograms(50);
 //        System.out.println("Calc weight equals " + weightTest);

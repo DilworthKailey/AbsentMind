@@ -47,16 +47,16 @@ public class StatusMenuView extends View{
              
              
          } catch (MenuException ex) {
-             System.out.println(ex.getMessage());
+             this.console.println(ex.getMessage());
          }return false;
         }
 
     private void time() {
-        System.out.println("\n*** time function called ***");
+        this.console.println("\n*** time function called ***");
     }
 
     private void gameStatus() {
-        System.out.println("\n*** gameStatus function called ***");
+        this.console.println("\n*** gameStatus function called ***");
     }
     
 }

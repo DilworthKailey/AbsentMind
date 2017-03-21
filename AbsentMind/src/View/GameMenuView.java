@@ -33,9 +33,6 @@ public class GameMenuView extends View {
                 + "\nS - Status"
                 + "\nI - Item Menu"
                 + "\nE - Examine"
-                + "\nA - Antidote Puzzle"
-                + "\nW - Weight Puzzle"
-                + "\nP - Password Puzzle"
                 + "\nQ - Return to Main Menu "
                 + "\n-------------------------------------");
         
@@ -61,7 +58,7 @@ public class GameMenuView extends View {
                 case "I": // check inventory
                     this.itemMenu();
                     break;
-                case "E": // examine command
+               case "E": // examine command
                     this.examine();
                     break;
                 case "W": // test weight puzzle
@@ -72,7 +69,7 @@ public class GameMenuView extends View {
                         // test antidote puzzle
                         this.antidote();
                     } catch (AntidoteControlException me) {
-                        System.out.println(me.getMessage());
+                        this.console.println(me.getMessage());
                     }
                 }
                 case "P": {
@@ -80,7 +77,7 @@ public class GameMenuView extends View {
                         // test antidote puzzle
                         this.password();
                     } catch (PasswordControlException me) {
-                        System.out.println(me.getMessage());
+                        this.console.println(me.getMessage());
                     }
                 }
                 break;
@@ -90,7 +87,7 @@ public class GameMenuView extends View {
 
             
         } catch (MenuException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }return false;
         }
 
@@ -109,15 +106,15 @@ public class GameMenuView extends View {
         
         Location[][] locations = map.getLocations(); // retreive the locations from map
             // Build the heading of the map
-            System.out.print("  |");
+            this.console.print("  |");
             for( int column = 0; column < locations[0].length; column++){
              // print col numbers to side of map
-            System.out.print("   " + column + "  |"); 
+            this.console.print("   " + column + "  |"); 
             }
             // Now build the map.  For each row, show the column information
-            System.out.println();
+            this.console.println();
             for( int row = 0; row < locations.length; row++){
-              System.out.print(row + " "); // print row numbers to side of map
+              this.console.print(row + " "); // print row numbers to side of map
              for( int column = 0; column < locations[row].length; column++){
               // set default indicators as blanks
              leftIndicator = " ";
@@ -132,18 +129,18 @@ public class GameMenuView extends View {
                 leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                  rightIndicator = "<"; // same as above
              }
-                System.out.print("|"); // start map with a |
+                this.console.print("|"); // start map with a |
                 if(locations[row][column].getScene() == null)
                 {
                      // No scene assigned here so use ?? for the symbol
-                     System.out.print(leftIndicator + " ?? " + rightIndicator);
+                     this.console.print(leftIndicator + " ?? " + rightIndicator);
                 }
                 else
-                 System.out.print(leftIndicator
+                 this.console.print(leftIndicator
                      + locations[row][column].getScene().getDisplaySymbol()
                   + rightIndicator);
             }
-            System.out.println("|");
+            this.console.println("|");
     }
         
         

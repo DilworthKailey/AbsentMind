@@ -11,6 +11,8 @@ import Exception.PasswordControlException;
 import Model.Clue;
 import Model.Player;
 import absentmind.AbsentMind;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -21,6 +23,9 @@ public class PasswordPuzzleView {
     private String promptMessage;
     Player player = AbsentMind.getPlayer();
     String playerName = player.getName();
+    
+    protected final BufferedReader keyboard = AbsentMind.getInFile();
+    protected final PrintWriter console = AbsentMind.getOutFile();
 
     
 public void displayPasswordPuzzle() throws PasswordControlException{
@@ -33,17 +38,17 @@ public void displayPasswordPuzzle() throws PasswordControlException{
         playerPassword = this.getPassword();
 
         if (playerPassword != password){
-            System.out.println("\nPassword Incorrect. "
+            this.console.println("\nPassword Incorrect. "
                     + "\nTo retrieve password, please enter your set keyword "
                     + "(Enter Q to quit):");
             String hint = this.getKeyword();
             if (hint.equals(playerName)){
-                System.out.println("\nYour password is: " + password);
+                this.console.println("\nYour password is: " + password);
             }else{
-                System.out.println("\nYour keyword is incorrect. Goodbye.");
+                this.console.println("\nYour keyword is incorrect. Goodbye.");
             }
         }else{
-            System.out.println("\nCorrect Password: Your phone has been unlocked."
+            this.console.println("\nCorrect Password: Your phone has been unlocked."
                     + " You have one new message: "
                     + "\nHey, " + playerName + ", you were right! There is a "
                     + "\nsecret base under the gym! I thought you were crazy, "
@@ -56,26 +61,27 @@ public void displayPasswordPuzzle() throws PasswordControlException{
         }
           
     }while (!done);
-    System.out.println(("\n\n(A secret basement? I better check the back of the locker room...)"));
+    this.console.println(("\n\n(A secret basement? I better check the back of the locker room...)"));
 }
 
 private int getPassword() throws PasswordControlException {
     this.promptMessage = "\nPlease enter Password (Enter Q to quit):";
-    Scanner keyboard = new Scanner(System.in); // get infile for keyboard
     boolean valid = false;
     String selection = null;
     
     double playerPassword = 0;
     
+    try{
     while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            selection = keyboard.nextLine(); // get next line typed on keyboard
+            selection = keyboard.readLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
             try {
             playerPassword = Double.parseDouble(selection);
             } catch (NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
             }
             if (playerPassword <= 99999) { // weight less than or equal to 30?
             throw new PasswordControlException("Password Incorrect. Entry must "
@@ -88,25 +94,33 @@ private int getPassword() throws PasswordControlException {
         }
             else valid = true;
         }
+    }catch (Exception e){
+        ErrorView.display(this.getClass().getName(),
+                "Error reading input: " + e.getMessage());
+    }
         return (int) playerPassword; 
     
 }
 
     private String getKeyword() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = null;
         boolean valid = false;
-        
+        try{
         while (!valid) { //loop while an invalid value is enter
             
-            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = keyboard.readLine(); // get next line typed on keyboard
             
             if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value must be at least 1 character");
+                ErrorView.display(this.getClass().getName(),
+                        "\nInvalid value: value must be at least 1 character");
                 continue;
             }
                 break; // end the loop
-            }        
+            }  
+        }catch (Exception e){
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
         return value;
     }
 }

@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Exception.AntidoteControlException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +32,7 @@ public class AntidoteControlTest {
      * Test of calcWeightInKilograms method, of class AntidoteControl.
      */    
     @Test
-    public void testCalcWeightInKilograms() {
+    public void testCalcWeightInKilograms() throws AntidoteControlException {
 
         System.out.println("calcWeightInKilograms");
         
@@ -97,7 +98,7 @@ public class AntidoteControlTest {
      * Test of calcDosage method, of class AntidoteControl.
      */    
     @Test
-    public void testCalcDosage() {
+    public void testCalcDosage() throws AntidoteControlException {
         System.out.println("\ncalcDosage");
         
         /**********************************

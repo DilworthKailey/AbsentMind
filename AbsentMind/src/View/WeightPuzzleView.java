@@ -7,6 +7,9 @@ package View;
 
 import java.util.Scanner;
 import Control.WeightPuzzleControl;
+import absentmind.AbsentMind;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -15,6 +18,9 @@ import Control.WeightPuzzleControl;
 public class WeightPuzzleView {
 
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = AbsentMind.getInFile();
+    protected final PrintWriter console = AbsentMind.getOutFile();
 
     public WeightPuzzleView() {
     
@@ -62,27 +68,32 @@ public class WeightPuzzleView {
     private int getChoice1() {
        
         this.promptMessage = "\nType a key number (1-8) to place it on the right side of the scale.";
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         boolean valid = false;
         String selection = null;
         int choice1 = 0;
-        
+        try{
         while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            selection = keyboard.nextLine(); // get next line typed on keyboard
+            selection = keyboard.readLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
             try {
             choice1 = Integer.parseInt(selection);
             } catch (NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
             }
             
             if (choice1 > 8 || choice1 < 1){
-                System.out.println("Invalid selection, try again.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid selection, try again.");
                 choice1 = -1;
             }
             else valid = true;
+        }
+        } catch (Exception e){
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
         return choice1;       
     }
@@ -90,28 +101,33 @@ public class WeightPuzzleView {
     private int getChoice2() {
        
         this.promptMessage = "\nType another key number (1-8) to place it on the right side of the scale. If you only wish to place one key, enter 0.";
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         boolean valid = false;
         String selection = null;
         int choice2 = 0;
-        
+        try{
         while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            selection = keyboard.nextLine(); // get next line typed on keyboard
+            selection = keyboard.readLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
             try {
             choice2 = Integer.parseInt(selection);
             } catch (NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
             }
             
              if (choice2 > 8 || choice2 < 0){
-                System.out.println("Invalid selection, try again.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid selection, try again.");
                 choice2 = -2;
             }
              else valid = true;
-        }       
+        }
+        }catch (Exception e){
+             ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
         return choice2;
     }
     
@@ -131,56 +147,66 @@ public class WeightPuzzleView {
     private int getChoice3() {
        
         this.promptMessage = "\nType a key number (1-8) to place it on the left side of the scale.";
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         boolean valid = false;
         String selection = null;
         int choice3 = 0;
-        
+        try{
         while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            selection = keyboard.nextLine(); // get next line typed on keyboard
+            selection = keyboard.readLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
             try {
             choice3 = Integer.parseInt(selection);
             } catch (NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
             }
             
             if (choice3 > 8 || choice3 < 1){
-                System.out.println("Invalid selection, try again.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid selection, try again.");
                 choice3 = -3;
             }
             else valid = true;
-        }        
+        }
+        } catch (Exception e){
+             ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
         return choice3;
     }
 
     private int getChoice4() {
        
         this.promptMessage = "\nType another key number (1-8) to place it on the left side of the scale. If you only wish to place one key, enter 0.";
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         boolean valid = false;
         String selection = null;
         int choice4 = 0;
-        
+        try{
         while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+            this.console.println("\n" + this.promptMessage);
             
-            selection = keyboard.nextLine(); // get next line typed on keyboard
+            selection = keyboard.readLine(); // get next line typed on keyboard
             selection = selection.trim(); // trim off leading and trailing blanks
             try {
             choice4 = Integer.parseInt(selection);
             } catch (NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
             }
             
              if (choice4 > 8 || choice4 < 0){
-                System.out.println("Invalid selection, try again.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid selection, try again.");
                 choice4 = -4;
             }
              else valid = true;
-        }       
+        }   
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
         return choice4;
     }
     
@@ -201,13 +227,13 @@ public class WeightPuzzleView {
          int calcWeight = WeightPuzzleControl.calcWeight(side1, side2);
         
          switch(calcWeight) {
-             case 0 : System.out.println("\nThe two sides are equal.");
+             case 0 : this.console.println("\nThe two sides are equal.");
              break;
-             case 1 : System.out.println("\nThe right side weighs more.");
+             case 1 : this.console.println("\nThe right side weighs more.");
              break;
-             case 2 : System.out.println("\nThe left side weighs more.");
+             case 2 : this.console.println("\nThe left side weighs more.");
              break;
-             default : System.out.println("\nAn error occurred, please try again.");
+             default : this.console.println("\nAn error occurred, please try again.");
          }
         // perform next action
         
