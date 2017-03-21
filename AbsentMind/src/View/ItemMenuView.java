@@ -33,6 +33,7 @@ public class ItemMenuView extends View{
                 + "\nC - Clues"
                 + "\nK - Key Items"
                 + "\nP - People"
+                + "\nR - Reports"
                 + "\nQ - Return to Game Menu "
                 + "\n-------------------------------------");
         
@@ -40,6 +41,7 @@ public class ItemMenuView extends View{
     }
 
      
+    @Override
      public boolean doAction(String value) {
         
         try {
@@ -54,6 +56,9 @@ public class ItemMenuView extends View{
                     break;
                 case "P": // see action notes
                     this.people();
+                    break;
+                case "R": // open reports menu
+                    this.displayReportsMenu();
                     break;
                 case "Q": // close menu
                     return true;
@@ -106,7 +111,7 @@ public class ItemMenuView extends View{
         this.console.println("You have found " + count + " clue(s).");
     }
 
-    private void keyItems() {
+    public void keyItems() {
         StringBuilder line;
         
         Game game = AbsentMind.getCurrentGame();
@@ -123,6 +128,12 @@ public class ItemMenuView extends View{
             
             this.console.println(line.toString());
         }
+    }
+
+    private void displayReportsMenu() {
+    ReportsMenuView reportsMenuView = new ReportsMenuView();
+        
+      reportsMenuView.display();    
     }
     
 }

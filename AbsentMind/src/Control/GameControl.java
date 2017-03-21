@@ -143,6 +143,7 @@ public class GameControl {
     }
     
     
+    
     public enum SceneType {
         start,
         trainMap,
