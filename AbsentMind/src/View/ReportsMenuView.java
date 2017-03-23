@@ -9,6 +9,7 @@ import Exception.MenuException;
 import Model.Game;
 import Model.KeyItem;
 import Model.NpcClue;
+import Model.Clue;
 import absentmind.AbsentMind;
 import java.io.File;
 import java.io.PrintWriter;
@@ -63,7 +64,38 @@ public class ReportsMenuView extends View{
         }
 
     private void clues() {
-        this.console.println("\n*** clues() function called ***");
+        StringBuilder line;
+        
+        Game game = AbsentMind.getCurrentGame();
+        ArrayList<Clue> clue = game.getClue();
+        
+    this.console.println("\nEnter a name for the Clue report file"
+                + " to be saved.");
+        String fileName = this.getInput();
+        
+        try{
+            File myFile = new File(fileName + ".txt");
+            myFile.createNewFile();
+            PrintWriter myWriter = new PrintWriter(myFile);
+            myWriter.println("\nLIST OF CLUES");
+            line = new StringBuilder("                              ");
+            line.insert(0, "DESCRIPTION");
+            myWriter.println(line.toString());
+        
+        for (Clue clues : clue) {
+            line = new StringBuilder("                          ");
+            line.insert(0, clues.getDescription());
+            
+            myWriter.println(line.toString());
+          
+        }
+        this.console.println("\nYou have successfully written the clue report"
+                    + " to your designated file name.");
+            myWriter.close();
+        } catch (Exception ex) {
+            ErrorView.display("ItemMenuView", ex.getMessage());
+        } 
+        
     }
 
     private void keyItems() {
