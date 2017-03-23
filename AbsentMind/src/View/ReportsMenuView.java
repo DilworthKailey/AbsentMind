@@ -104,7 +104,7 @@ public class ReportsMenuView extends View{
         Game game = AbsentMind.getCurrentGame();
         ArrayList<KeyItem> keyItem = game.getKeyItem();
         
-    this.console.println("\n\nEnter a name for your report file"
+    this.console.println("\n\nEnter a name for your Key Item report file"
                 + " to be saved.");
         String fileName = this.getInput();
         
@@ -123,6 +123,8 @@ public class ReportsMenuView extends View{
             
             myWriter.println(line.toString());
         }
+        this.console.println("\nYou have successfully written the Key Item report"
+                    + " to " + fileName + ".txt");
             myWriter.close();
         } catch (Exception ex) {
             ErrorView.display("ItemMenuView", ex.getMessage());
@@ -136,7 +138,7 @@ public class ReportsMenuView extends View{
         Game game = AbsentMind.getCurrentGame();
         ArrayList<NpcClue> npcClue = game.getNpcClue();
         
-    this.console.println("\n\nEnter a name for your report file"
+    this.console.println("\n\nEnter a name for your interaction report file"
                 + " to be saved.");
         String fileName = this.getInput();
         
@@ -155,6 +157,8 @@ public class ReportsMenuView extends View{
             
             myWriter.println(line.toString());
         }
+        this.console.println("\nYou have successfully written the interaction report"
+                    + " to " + fileName + ".txt");
             myWriter.close();
         } catch (Exception ex) {
             ErrorView.display("ItemMenuView", ex.getMessage());
