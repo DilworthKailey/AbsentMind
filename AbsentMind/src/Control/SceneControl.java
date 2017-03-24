@@ -6,6 +6,8 @@
 package Control;
 
 
+import Model.Clue;
+import Model.KeyItem;
 import Model.Location;
 import Model.Map;
 import Model.Scene;
@@ -62,6 +64,9 @@ public class SceneControl {
         startingScene.setDisplaySymbol(" ST ");
         startingScene.setBlocked(false);
         startingScene.setTravelTime(15);
+        startingScene.setKeyItem(null);
+        startingScene.setClue(null);
+        startingScene.setNpcClue(null);
         scenes[SceneType.start.ordinal()] = startingScene;
         
         Scene subwayStationScene = new Scene();
@@ -71,6 +76,9 @@ public class SceneControl {
         subwayStationScene.setDisplaySymbol(" SS ");
         subwayStationScene.setBlocked(false);
         subwayStationScene.setTravelTime(15);
+        subwayStationScene.setKeyItem(null);
+        subwayStationScene.setClue(null);
+        subwayStationScene.setNpcClue(null);
         scenes[SceneType.subwayStation.ordinal()] = subwayStationScene;
         
         Scene trainMapScene = new Scene();
@@ -80,6 +88,9 @@ public class SceneControl {
         trainMapScene.setDisplaySymbol(" TM ");
         trainMapScene.setBlocked(false);
         trainMapScene.setTravelTime(15);
+        trainMapScene.setKeyItem(null);
+        trainMapScene.setClue(null);
+        trainMapScene.setNpcClue(null);
         scenes[SceneType.trainMap.ordinal()] = trainMapScene;
         
         Scene firstSeatScene = new Scene();
@@ -88,6 +99,11 @@ public class SceneControl {
         firstSeatScene.setDisplaySymbol(" 1S ");
         firstSeatScene.setBlocked(false);
         firstSeatScene.setTravelTime(15);
+        KeyItem key = new KeyItem("Key","a key in your pocket. It appears to"
+                + "be a door key.");
+        firstSeatScene.setKeyItem(key);
+        firstSeatScene.setClue(null);
+        firstSeatScene.setNpcClue(null);
         scenes[SceneType.firstSeat.ordinal()] = firstSeatScene;
         
         Scene secondSeatScene = new Scene();
@@ -96,6 +112,9 @@ public class SceneControl {
         secondSeatScene.setDisplaySymbol(" 2S ");
         secondSeatScene.setBlocked(false);
         secondSeatScene.setTravelTime(15);
+        secondSeatScene.setKeyItem(null);
+        secondSeatScene.setClue(null);
+        secondSeatScene.setNpcClue(null);
         scenes[SceneType.secondSeat.ordinal()] = secondSeatScene;
         
         Scene hospitalLobbyScene = new Scene();
@@ -109,6 +128,9 @@ public class SceneControl {
         hospitalLobbyScene.setDisplaySymbol(" HL ");
         hospitalLobbyScene.setBlocked(false);
         hospitalLobbyScene.setTravelTime(15);
+        hospitalLobbyScene.setKeyItem(null);
+        hospitalLobbyScene.setClue(null);
+        hospitalLobbyScene.setNpcClue(null);
         scenes[SceneType.hospitalLobby.ordinal()] = hospitalLobbyScene;
         
         Scene waitingRoomScene = new Scene();
@@ -117,6 +139,9 @@ public class SceneControl {
         waitingRoomScene.setDisplaySymbol(" WR ");
         waitingRoomScene.setBlocked(false);
         waitingRoomScene.setTravelTime(15);
+        waitingRoomScene.setKeyItem(null);
+        waitingRoomScene.setClue(null);
+        waitingRoomScene.setNpcClue(null);
         scenes[SceneType.waitingRoom.ordinal()] = waitingRoomScene;
         
         Scene frontDeskScene = new Scene();
@@ -125,6 +150,9 @@ public class SceneControl {
         frontDeskScene.setDisplaySymbol(" FD ");
         frontDeskScene.setBlocked(false);
         frontDeskScene.setTravelTime(15);
+        frontDeskScene.setKeyItem(null);
+        frontDeskScene.setClue(null);
+        frontDeskScene.setNpcClue(null);
         scenes[SceneType.frontDesk.ordinal()] = frontDeskScene;
         
         Scene doctorOfficeScene = new Scene();
@@ -140,6 +168,9 @@ public class SceneControl {
         doctorOfficeScene.setDisplaySymbol(" DO ");
         doctorOfficeScene.setBlocked(false);
         doctorOfficeScene.setTravelTime(15);
+        doctorOfficeScene.setKeyItem(null);
+        doctorOfficeScene.setClue(null);
+        doctorOfficeScene.setNpcClue(null);
         scenes[SceneType.doctorOffice.ordinal()] = doctorOfficeScene;
         
         Scene hospitalStationScene = new Scene();
@@ -150,6 +181,9 @@ public class SceneControl {
         hospitalStationScene.setDisplaySymbol(" HS ");
         hospitalStationScene.setBlocked(false);
         hospitalStationScene.setTravelTime(15);
+        hospitalStationScene.setKeyItem(null);
+        hospitalStationScene.setClue(null);
+        hospitalStationScene.setNpcClue(null);
         scenes[SceneType.hospitalStation.ordinal()] = hospitalStationScene;
         
         Scene officeLobbyScene = new Scene();
@@ -161,6 +195,9 @@ public class SceneControl {
         officeLobbyScene.setDisplaySymbol(" OL ");
         officeLobbyScene.setBlocked(false);
         officeLobbyScene.setTravelTime(15);
+        officeLobbyScene.setKeyItem(null);
+        officeLobbyScene.setClue(null);
+        officeLobbyScene.setNpcClue(null);
         scenes[SceneType.officeLobby.ordinal()] = officeLobbyScene;
         
         Scene elevatorsScene = new Scene();
@@ -171,6 +208,9 @@ public class SceneControl {
         elevatorsScene.setDisplaySymbol(" EL ");
         elevatorsScene.setBlocked(false);
         elevatorsScene.setTravelTime(15);
+        elevatorsScene.setKeyItem(null);
+        elevatorsScene.setClue(null);
+        elevatorsScene.setNpcClue(null);
         scenes[SceneType.elevators.ordinal()] = elevatorsScene;
         
         Scene thirdFloorScene = new Scene();
@@ -180,6 +220,9 @@ public class SceneControl {
         thirdFloorScene.setDisplaySymbol(" 3F ");
         thirdFloorScene.setBlocked(false);
         thirdFloorScene.setTravelTime(15);
+        thirdFloorScene.setKeyItem(null);
+        thirdFloorScene.setClue(null);
+        thirdFloorScene.setNpcClue(null);
         scenes[SceneType.thirdFloor.ordinal()] = thirdFloorScene;
         
         Scene deskScene = new Scene();
@@ -191,6 +234,9 @@ public class SceneControl {
         deskScene.setDisplaySymbol(" DK ");
         deskScene.setBlocked(false);
         deskScene.setTravelTime(15);
+        deskScene.setKeyItem(null);
+        deskScene.setClue(null);
+        deskScene.setNpcClue(null);
         scenes[SceneType.desk.ordinal()] = deskScene;
         
         Scene officeStationScene = new Scene();
@@ -200,6 +246,9 @@ public class SceneControl {
         officeStationScene.setDisplaySymbol(" OS ");
         officeStationScene.setBlocked(false);
         officeStationScene.setTravelTime(15);
+        officeStationScene.setKeyItem(null);
+        officeStationScene.setClue(null);
+        officeStationScene.setNpcClue(null);
         scenes[SceneType.officeStation.ordinal()] = officeStationScene;
         
         Scene gymLobbyScene = new Scene();
@@ -214,6 +263,9 @@ public class SceneControl {
         gymLobbyScene.setDisplaySymbol(" GL ");
         gymLobbyScene.setBlocked(false);
         gymLobbyScene.setTravelTime(15);
+        gymLobbyScene.setKeyItem(null);
+        gymLobbyScene.setClue(null);
+        gymLobbyScene.setNpcClue(null);
         scenes[SceneType.gymLobby.ordinal()] = gymLobbyScene;
         
         Scene gymScene = new Scene();
@@ -223,6 +275,9 @@ public class SceneControl {
         gymScene.setDisplaySymbol(" GM ");
         gymScene.setBlocked(false);
         gymScene.setTravelTime(15);
+        gymScene.setKeyItem(null);
+        gymScene.setClue(null);
+        gymScene.setNpcClue(null);
         scenes[SceneType.gym.ordinal()] = gymScene;
         
         Scene lockerRoomScene = new Scene();
@@ -231,6 +286,9 @@ public class SceneControl {
         lockerRoomScene.setDisplaySymbol(" LR ");
         lockerRoomScene.setBlocked(false);
         lockerRoomScene.setTravelTime(15);
+        lockerRoomScene.setKeyItem(null);
+        lockerRoomScene.setClue(null);
+        lockerRoomScene.setNpcClue(null);
         scenes[SceneType.lockerRoom.ordinal()] = lockerRoomScene;
         
         Scene lockerScene = new Scene();
@@ -239,6 +297,10 @@ public class SceneControl {
         lockerScene.setDisplaySymbol(" LK ");
         lockerScene.setBlocked(false);
         lockerScene.setTravelTime(15);
+        KeyItem phone = new KeyItem("Cell Phone","a cellphone inside a pocket of the jacket.");
+        lockerScene.setKeyItem(phone);
+        lockerScene.setClue(null);
+        lockerScene.setNpcClue(null);
         scenes[SceneType.locker.ordinal()] = lockerScene;
         
         Scene basementDoorScene = new Scene();
@@ -250,6 +312,9 @@ public class SceneControl {
         basementDoorScene.setDisplaySymbol(" BD ");
         basementDoorScene.setBlocked(false);
         basementDoorScene.setTravelTime(15);
+        basementDoorScene.setKeyItem(null);
+        basementDoorScene.setClue(null);
+        basementDoorScene.setNpcClue(null);
         scenes[SceneType.basementDoor.ordinal()] = basementDoorScene;
         
         Scene basementEntranceScene = new Scene();
@@ -258,6 +323,9 @@ public class SceneControl {
         basementEntranceScene.setDisplaySymbol(" BE ");
         basementEntranceScene.setBlocked(false);
         basementEntranceScene.setTravelTime(15);
+        basementEntranceScene.setKeyItem(null);
+        basementEntranceScene.setClue(null);
+        basementEntranceScene.setNpcClue(null);
         scenes[SceneType.basementEntrance.ordinal()] = basementEntranceScene;
         
         Scene diningHallScene = new Scene();
@@ -266,6 +334,9 @@ public class SceneControl {
         diningHallScene.setDisplaySymbol(" DH ");
         diningHallScene.setBlocked(false);
         diningHallScene.setTravelTime(15);
+        diningHallScene.setKeyItem(null);
+        diningHallScene.setClue(null);
+        diningHallScene.setNpcClue(null);
         scenes[SceneType.diningHall.ordinal()] = diningHallScene;
         
         Scene labScene = new Scene();
@@ -274,6 +345,10 @@ public class SceneControl {
         labScene.setDisplaySymbol(" LB ");
         labScene.setBlocked(false);
         labScene.setTravelTime(15);
+        KeyItem antidote = new KeyItem("Antidote","a bottle of antidote to your poison.");
+        labScene.setKeyItem(antidote);
+        labScene.setClue(null);
+        labScene.setNpcClue(null);
         scenes[SceneType.lab.ordinal()] = labScene;
         
         
@@ -283,6 +358,9 @@ public class SceneControl {
         basementOfficeScene.setDisplaySymbol(" BO ");
         basementOfficeScene.setBlocked(false);
         basementOfficeScene.setTravelTime(15);
+        basementOfficeScene.setKeyItem(null);
+        basementOfficeScene.setClue(null);
+        basementOfficeScene.setNpcClue(null);
         scenes[SceneType.basementOffice.ordinal()] = basementOfficeScene;
         
         
@@ -293,6 +371,9 @@ public class SceneControl {
         finishScene.setDisplaySymbol(" FN ");
         finishScene.setBlocked(false);
         finishScene.setTravelTime(Double.POSITIVE_INFINITY);
+        finishScene.setKeyItem(null);
+        finishScene.setClue(null);
+        finishScene.setNpcClue(null);
         scenes[SceneType.finish.ordinal()] = finishScene;
         
         return scenes;

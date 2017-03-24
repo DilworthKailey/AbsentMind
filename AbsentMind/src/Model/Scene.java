@@ -28,6 +28,15 @@ public class Scene implements Serializable{
     private Location[] location;
     private Game game;
     private NpcClue[] npcClue;
+    private KeyItem keyItem;
+
+    public KeyItem getKeyItem() {
+        return keyItem;
+    }
+
+    public void setKeyItem(KeyItem keyItem) {
+        this.keyItem = keyItem;
+    }
     
     
     public Scene() {
