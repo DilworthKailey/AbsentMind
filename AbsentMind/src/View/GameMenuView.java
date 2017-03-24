@@ -12,9 +12,6 @@ import Model.Game;
 import Model.Location;
 import Model.Map;
 import absentmind.AbsentMind;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,6 +37,7 @@ public class GameMenuView extends View {
     }
 
      
+    @Override
      public boolean doAction(String value) {
         
         try {

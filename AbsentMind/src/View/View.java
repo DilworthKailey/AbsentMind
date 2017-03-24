@@ -8,7 +8,6 @@ package View;
 import absentmind.AbsentMind;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 /**
  *

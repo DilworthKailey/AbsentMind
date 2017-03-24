@@ -37,7 +37,7 @@ public class StartProgramView {
                 "\n********************************************"
                +"\n*                                          *"
                +"\n*Welcome to Absent Mind.                   *"
-               +"\n*You have awoken on the subway with no     *"
+               +"\n*In this game, you start with no           *"
                +"\n*memory of who you are or what is going on *"
                +"\n*except your name. It's up to you and your *"
                +"\n*choices to solve the mystery and discover *"

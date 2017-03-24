@@ -9,8 +9,6 @@ import Control.MapControl;
 import Exception.MapControlException;
 import Model.Map;
 import absentmind.AbsentMind;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

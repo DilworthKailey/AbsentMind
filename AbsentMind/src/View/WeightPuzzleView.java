@@ -5,7 +5,6 @@
  */
 package View;
 
-import java.util.Scanner;
 import Control.WeightPuzzleControl;
 import absentmind.AbsentMind;
 import java.io.BufferedReader;
