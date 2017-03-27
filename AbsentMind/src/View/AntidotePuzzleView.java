@@ -16,7 +16,7 @@ import java.io.PrintWriter;
  *
  * @author J.D.
  */
-class AntidotePuzzleView {
+public class AntidotePuzzleView {
     
     private String promptMessage;
     
@@ -49,6 +49,9 @@ class AntidotePuzzleView {
 
     private int getWeight() 
             throws AntidoteControlException {
+        this.console.println("\nThere is plenty of antidote, but it could be deadly to "
+                + "take without thinking about your weight. The vial states dosage in kilograms "
+                + "so you will need to remember your weight in pounds.");
         this.promptMessage = "\nPlease enter your weight.";
 
         boolean valid = false;
@@ -89,6 +92,10 @@ class AntidotePuzzleView {
         
         double dosage = AntidoteControl.calcDosage(weightKilo);
         this.console.println("\nThe dosage is " + dosage + "mg.");
+        this.console.println("\nYou take the proper dosage and feel your spirits"
+                + " refreshed! You rush out to the media and tell your tale. Your memory"
+                + " has regained and you save the city from the society's deadly poison!"
+                + " You win!");
         
         return true;
     }

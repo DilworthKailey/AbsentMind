@@ -25,7 +25,8 @@ public class SceneView extends View {
             this.displayMessage += "/nP- Put item in inventory.";
         }
     }
-    
+    // NPC Clue example "They told you "
+    // Clue example: "You learned that "    
 //    public void displaySceneView() {
 //       
 //        String description = currentScene.getDescription();

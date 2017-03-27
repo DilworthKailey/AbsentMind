@@ -8,6 +8,7 @@ package View;
 import Control.GameControl;
 import Exception.MapControlException;
 import Exception.MenuException;
+import Exception.PasswordControlException;
 import absentmind.AbsentMind;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +30,6 @@ public class MainMenuView extends View {
                 + "\nL - Load Game"
                 + "\nR - Reset Game (Start new game)"
                 + "\nH - Help Menu"
-                + "\nC - Close Menu "
                 + "\nQ - Quit Game "
                 + "\n-------------------------------------");
         
@@ -60,9 +60,6 @@ public class MainMenuView extends View {
                 break;
                 case "H": // display help menu
                     this.displayHelpMenu();
-                    break;
-                case "C": //Quit Menu
-                    this.closeMenu();
                     break;
                 default:
                     throw new MenuException("\n*** Invalid selection. Please try again.");
@@ -102,7 +99,11 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() throws MapControlException {
-        GameControl.createNewGame(AbsentMind.getPlayer());
+        try {
+            GameControl.createNewGame(AbsentMind.getPlayer());
+        } catch (PasswordControlException ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
@@ -114,9 +115,6 @@ public class MainMenuView extends View {
       helpMenuView.display();
     }
 
-    private void closeMenu() {
-        this.console.println("\n*** closeMenu function called ***");
-    }
     
     
 }

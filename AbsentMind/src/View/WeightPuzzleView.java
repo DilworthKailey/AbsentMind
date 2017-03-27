@@ -5,6 +5,7 @@
  */
 package View;
 
+import Control.SceneControl;
 import Control.WeightPuzzleControl;
 import absentmind.AbsentMind;
 import java.io.BufferedReader;
@@ -236,7 +237,7 @@ public class WeightPuzzleView {
          }
         // perform next action
         
-        
+        SceneControl.weightComplete = true;
         return true; // huzzah!
     }
 

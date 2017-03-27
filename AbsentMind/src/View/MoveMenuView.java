@@ -6,6 +6,7 @@
 package View;
 
 import Control.MapControl;
+import Control.SceneControl;
 import Exception.MapControlException;
 import Model.Map;
 import absentmind.AbsentMind;
@@ -66,6 +67,12 @@ public class MoveMenuView extends View {
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentRow() == map.getRowCount() - 5)
             throw new MapControlException("\n*** You cannot move further North");
+        if (map.getCurrentRow() == 2 && map.getCurrentColumn() == 0 && SceneControl.weightComplete == false )
+            throw new MapControlException("\n*** You cannot enter this area yet");
+        if (map.getCurrentRow() == 2 && map.getCurrentColumn() == 1 && SceneControl.weightComplete == false )
+            throw new MapControlException("\n*** You cannot enter this area yet");
+        if (map.getCurrentRow() == 2 && map.getCurrentColumn() == 2 && SceneControl.weightComplete == false )
+            throw new MapControlException("\n*** You cannot enter this area yet");
         else {
             MapControl.movePlayer(map, map.getCurrentRow() - 1, map.getCurrentColumn());
             return true;
@@ -99,6 +106,10 @@ public class MoveMenuView extends View {
          Map map = AbsentMind.getCurrentGame().getMap();
         if (map.getCurrentColumn() == map.getColumnCount() - 5)
             throw new MapControlException("\n*** You cannot move further West");
+        if (map.getCurrentRow() == 1 && map.getCurrentColumn() == 3 && SceneControl.weightComplete == false )
+            throw new MapControlException("\n*** You cannot enter this area yet");
+        if (map.getCurrentRow() == 0 && map.getCurrentColumn() == 2 && SceneControl.weightComplete == false )
+            throw new MapControlException("\n*** You cannot enter this area yet");
         else {
             MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() - 1);
             return true;

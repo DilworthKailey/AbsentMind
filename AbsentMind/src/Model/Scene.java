@@ -24,10 +24,10 @@ public class Scene implements Serializable{
     private boolean blocked;
     
     private NonPlayableCharacter nonPlayableCharacter;
-    private Clue[] clue;
+    private Clue clue;
     private Location[] location;
     private Game game;
-    private NpcClue[] npcClue;
+    private NpcClue npcClue;
     private KeyItem keyItem;
 
     public KeyItem getKeyItem() {
@@ -106,11 +106,11 @@ public class Scene implements Serializable{
         this.nonPlayableCharacter = nonPlayableCharacter;
     }
 
-    public Clue[] getClue() {
+    public Clue getClue() {
         return clue;
     }
 
-    public void setClue(Clue[] clue) {
+    public void setClue(Clue clue) {
         this.clue = clue;
     }
 
@@ -130,11 +130,11 @@ public class Scene implements Serializable{
         this.game = game;
     }
 
-    public NpcClue[] getNpcClue() {
+    public NpcClue getNpcClue() {
         return npcClue;
     }
 
-    public void setNpcClue(NpcClue[] npcClue) {
+    public void setNpcClue(NpcClue npcClue) {
         this.npcClue = npcClue;
     }
 

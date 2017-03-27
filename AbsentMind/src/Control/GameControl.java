@@ -7,6 +7,7 @@ package Control;
 
 import Exception.MapControlException;
 import Exception.GameControlException;
+import Exception.PasswordControlException;
 import Model.Clue;
 import Model.Player;
 import absentmind.AbsentMind;
@@ -43,7 +44,7 @@ public class GameControl {
         
     }
 
-    public static void createNewGame(Player player) throws MapControlException {
+    public static void createNewGame(Player player) throws MapControlException, PasswordControlException {
         
         Game game = new Game(); // create new game
         AbsentMind.setCurrentGame(game); // save in AbsentMind
@@ -64,7 +65,6 @@ public class GameControl {
         game.setMap(map); // save map in game
         
         // move actors to starting position in the map
-        MapControl.moveNPCtoStartingLocation(map);
         MapControl.movePlayertoStartingLocation(map);
         
     } 

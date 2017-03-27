@@ -7,6 +7,7 @@ package View;
 
 import Control.GameControl;
 import Control.PasswordControl;
+import Control.SceneControl;
 import Exception.PasswordControlException;
 import Model.Clue;
 import Model.Player;
@@ -39,33 +40,40 @@ public void displayPasswordPuzzle() throws PasswordControlException{
 
         if (playerPassword != password){
             this.console.println("\nPassword Incorrect. "
-                    + "\nTo retrieve password, please enter your set keyword "
-                    + "(Enter Q to quit):");
+                    + "\nTo retrieve password, please enter your set keyword ");
             String hint = this.getKeyword();
             if (hint.equals(playerName)){
                 this.console.println("\nYour password is: " + password);
             }else{
                 this.console.println("\nYour keyword is incorrect. Goodbye.");
+                this.console.println("\n\n\n(I'll have to come back and try "
+                        + "again. Maybe I recieved a clue that will help me?)");
+                done = true;
             }
         }else{
             this.console.println("\nCorrect Password: Your phone has been unlocked."
                     + " You have one new message: "
                     + "\nHey, " + playerName + ", you were right! There is a "
                     + "\nsecret base under the gym! I thought you were crazy, "
-                    + "\nbut I checked out the back of the locker room and you "
+                    + "\nbut I checked out the gym at coordinate 0,2 and you "
                     + "\nwere right! There were stairs that led to a door with "
                     + "\nsome strange contraption to open it. I was too scared "
                     + "\nto try to get in though... You must be onto something "
                     + "\nbig! Call me later!");
+            
+            this.console.println(("\n\n(A secret basement? I better check the gym at 0,2...)"));
+            SceneControl.phoneMessage = true;
+            
             done = true;  
         }
           
     }while (!done);
-    this.console.println(("\n\n(A secret basement? I better check the back of the locker room...)"));
+    
+
 }
 
 private int getPassword() throws PasswordControlException {
-    this.promptMessage = "\nPlease enter Password (Enter Q to quit):";
+    this.promptMessage = "\nPlease enter Password:";
     boolean valid = false;
     String selection = null;
     
