@@ -122,7 +122,7 @@ public class SceneControl {
         firstSeatScene.setTravelTime(15);
         keyObtained = true;
         KeyItem key = new KeyItem("Key","a key in your pocket. It appears to"
-                + "be a door key.");
+                + " be a door key.");
         firstSeatScene.setKeyItem(key);
         firstSeatScene.setClue(null);
         firstSeatScene.setNpcClue(null);

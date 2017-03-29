@@ -27,9 +27,7 @@ public class GameMenuView extends View {
                 + "\n-------------------------------------"
                 + "\nM - Move"
                 + "\nV - View Map"
-                + "\nS - Status"
                 + "\nI - Item Menu"
-                + "\nE - Examine"
                 + "\nQ - Return to Main Menu "
                 + "\n-------------------------------------");
         
@@ -50,15 +48,15 @@ public class GameMenuView extends View {
                 case "V": // view map
                     this.viewMap();
                     break;
-                case "S": // see player/game status
-                    this.status();
-                    break;
+//                case "S": // see player/game status
+//                    this.status();
+//                    break;
                 case "I": // check inventory
                     this.itemMenu();
                     break;
-               case "E": // examine command
-                    this.examine();
-                    break;
+//               case "E": // examine command
+//                    this.examine();
+//                    break;
                 case "W": // test weight puzzle
                     this.weight();
                     break;
@@ -144,10 +142,10 @@ public class GameMenuView extends View {
         
     }
 
-    private void status() {
-        StatusMenuView statusMenu = new StatusMenuView();
-        statusMenu.display();
-    }
+//    private void status() {
+//        StatusMenuView statusMenu = new StatusMenuView();
+//        statusMenu.display();
+//    }
     
     private void itemMenu() {
         ItemMenuView itemMenu = new ItemMenuView();
@@ -155,10 +153,10 @@ public class GameMenuView extends View {
         
     }
 
-    private void examine() {
-        ExamineMenuView examineMenu = new ExamineMenuView();
-        examineMenu.display();
-    }
+//    private void examine() {
+//        ExamineMenuView examineMenu = new ExamineMenuView();
+//        examineMenu.display();
+//    }
 
 
     private void weight() {

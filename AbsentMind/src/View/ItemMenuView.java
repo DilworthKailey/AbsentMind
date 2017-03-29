@@ -86,7 +86,7 @@ public class ItemMenuView extends View{
         
         for (NpcClue item : npcClue) {
             line = new StringBuilder("                          ");
-            line.insert(0, item.getDescription());
+            line.insert(0, "\nThe " + item.getNpcClueName() + " told you " + item.getDescription());
             
             this.console.println(line.toString());
         }
@@ -105,7 +105,7 @@ public class ItemMenuView extends View{
         
         for (Clue item : clue) {
             line = new StringBuilder("                          ");
-            line.insert(0, item.getDescription());
+            line.insert(0, "\nYou learned " + item.getDescription());
             
             this.console.println(line.toString());
         }
@@ -125,7 +125,7 @@ public class ItemMenuView extends View{
         
         for (KeyItem item : keyItem) {
             line = new StringBuilder("                          ");
-            line.insert(0, item.getDescription());
+            line.insert(0, "\nYou found " + item.getDescription());
             
             this.console.println(line.toString());
         }
