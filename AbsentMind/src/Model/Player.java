@@ -7,6 +7,7 @@ package Model;
 
 import java.util.Objects;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,9 +18,28 @@ public class Player implements Serializable{
     public String name;
     private double bestTime;
     private String endingType;
+    private ArrayList <KeyItem> KeyItem;
+    private ArrayList <Clue> Clue;
+    private ArrayList <NpcClue> NpcClue;
     
 
     public Player() {
+        
+        KeyItem = new ArrayList<>();
+        Clue = new ArrayList<>();
+        NpcClue = new ArrayList<>();
+    }
+
+    public ArrayList<KeyItem> getKeyItem() {
+        return KeyItem;
+    }
+
+    public ArrayList<Clue> getClue() {
+        return Clue;
+    }
+
+    public ArrayList<NpcClue> getNpcClue() {
+        return NpcClue;
     }
     
     

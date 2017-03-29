@@ -11,6 +11,7 @@ import Model.Clue;
 import Model.Game;
 import Model.KeyItem;
 import Model.NpcClue;
+import Model.Player;
 import absentmind.AbsentMind;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -75,8 +76,8 @@ public class ItemMenuView extends View{
     private void people() {
         StringBuilder line;
         
-        Game game = AbsentMind.getCurrentGame();
-        ArrayList<NpcClue> npcClue = game.getNpcClue();
+        Player player = AbsentMind.getPlayer();
+        ArrayList<NpcClue> npcClue = player.getNpcClue();
         InventoryControl.doNpcSort(npcClue);
         this.console.println("\n      LIST OF CLUES");
         line = new StringBuilder("                              ");
@@ -94,8 +95,8 @@ public class ItemMenuView extends View{
     private void clues() {
         StringBuilder line;
         
-        Game game = AbsentMind.getCurrentGame();
-        ArrayList<Clue> clue = game.getClue();
+        Player player = AbsentMind.getPlayer();
+        ArrayList<Clue> clue = player.getClue();
         int count = InventoryControl.countClueList(clue);
         this.console.println("\n      LIST OF CLUES");
         line = new StringBuilder("                              ");
@@ -114,8 +115,8 @@ public class ItemMenuView extends View{
     public void keyItems() {
         StringBuilder line;
         
-        Game game = AbsentMind.getCurrentGame();
-        ArrayList<KeyItem> keyItem = game.getKeyItem();
+        Player player = AbsentMind.getPlayer();
+        ArrayList<KeyItem> keyItem = player.getKeyItem();
         
         this.console.println("\n      LIST OF KEY ITEMS");
         line = new StringBuilder("                              ");

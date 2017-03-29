@@ -9,6 +9,8 @@ import Control.MapControl;
 import Control.SceneControl;
 import Exception.MapControlException;
 import Model.Map;
+import Model.Player;
+import Model.Scene;
 import absentmind.AbsentMind;
 
 /**
@@ -61,10 +63,28 @@ public class MoveMenuView extends View {
          }
          return false;
         }
+     
+     private void movePlayer(Map map, int Row, int Column){
+         Player player = AbsentMind.getPlayer();
+         MapControl.movePlayer(map, Row, Column);
+         Scene currentScene = map.getLocation().getScene();
+            if (currentScene.getKeyItem() != null){
+                this.console.println("\nYou found " + currentScene.getKeyItem().getDescription());
+            }
+            else if (currentScene.getClue() != null){
+                this.console.println("\nYou found " + currentScene.getClue().getDescription());
+            }
+            else if (currentScene.getNpcClue() != null){
+                this.console.println("\nYou found " + currentScene.getNpcClue().getDescription());
+            }
+            this.console.println(currentScene.getDescription());
+            MapControl.givePlayerItem(player, map);
+     }
 
     private boolean north() 
             throws MapControlException {
          Map map = AbsentMind.getCurrentGame().getMap();
+         
         if (map.getCurrentRow() == map.getRowCount() - 5)
             throw new MapControlException("\n*** You cannot move further North");
         if (map.getCurrentRow() == 2 && map.getCurrentColumn() == 0 && SceneControl.weightComplete == false )
@@ -74,7 +94,8 @@ public class MoveMenuView extends View {
         if (map.getCurrentRow() == 2 && map.getCurrentColumn() == 2 && SceneControl.weightComplete == false )
             throw new MapControlException("\n*** You cannot enter this area yet");
         else {
-            MapControl.movePlayer(map, map.getCurrentRow() - 1, map.getCurrentColumn());
+            movePlayer(map, map.getCurrentRow() - 1, map.getCurrentColumn());
+            
             return true;
         }
     }
@@ -85,7 +106,7 @@ public class MoveMenuView extends View {
         if (map.getCurrentColumn() == map.getColumnCount() - 1)
             throw new MapControlException("\n*** You cannot move further East");
         else {
-            MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() + 1);
+            movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() + 1);
             return true;
         }
     }
@@ -96,7 +117,7 @@ public class MoveMenuView extends View {
         if (map.getCurrentRow() == map.getRowCount() - 1)
             throw new MapControlException("\n*** You cannot move further South");
         else {
-            MapControl.movePlayer(map, map.getCurrentRow() + 1, map.getCurrentColumn());
+            movePlayer(map, map.getCurrentRow() + 1, map.getCurrentColumn());
             return true;
         }
     }
@@ -111,7 +132,7 @@ public class MoveMenuView extends View {
         if (map.getCurrentRow() == 0 && map.getCurrentColumn() == 2 && SceneControl.weightComplete == false )
             throw new MapControlException("\n*** You cannot enter this area yet");
         else {
-            MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() - 1);
+            movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() - 1);
             return true;
         }
     }

@@ -10,6 +10,7 @@ import Model.Game;
 import Model.KeyItem;
 import Model.NpcClue;
 import Model.Clue;
+import Model.Player;
 import absentmind.AbsentMind;
 import java.io.File;
 import java.io.PrintWriter;
@@ -66,8 +67,8 @@ public class ReportsMenuView extends View{
     private void clues() {
         StringBuilder line;
         
-        Game game = AbsentMind.getCurrentGame();
-        ArrayList<Clue> clue = game.getClue();
+        Player player = AbsentMind.getPlayer();
+        ArrayList<Clue> clue = player.getClue();
         
     this.console.println("\nEnter a name for the Clue report file"
                 + " to be saved.");
@@ -101,8 +102,8 @@ public class ReportsMenuView extends View{
     private void keyItems() {
         StringBuilder line;
         
-        Game game = AbsentMind.getCurrentGame();
-        ArrayList<KeyItem> keyItem = game.getKeyItem();
+       Player player = AbsentMind.getPlayer();
+        ArrayList<KeyItem> keyItem = player.getKeyItem();
         
     this.console.println("\n\nEnter a name for your Key Item report file"
                 + " to be saved.");
@@ -135,8 +136,8 @@ public class ReportsMenuView extends View{
         
         StringBuilder line;
         
-        Game game = AbsentMind.getCurrentGame();
-        ArrayList<NpcClue> npcClue = game.getNpcClue();
+        Player player = AbsentMind.getPlayer();
+        ArrayList<NpcClue> npcClue = player.getNpcClue();
         
     this.console.println("\n\nEnter a name for your interaction report file"
                 + " to be saved.");

@@ -19,9 +19,7 @@ public class Game implements Serializable{
     private double timeRemaining;
     
     private NonPlayableCharacter[] nonPlayableCharacter;
-    private ArrayList<KeyItem> keyItem;
-    private ArrayList<Clue> clue;
-    private ArrayList<NpcClue> npcClue;
+    
     private Map map;
     private Player player;
     
@@ -69,21 +67,7 @@ public class Game implements Serializable{
         this.nonPlayableCharacter = nonPlayableCharacter;
     }
 
-    public ArrayList<KeyItem> getKeyItem() {
-        return keyItem;
-    }
-
-    public void setKeyItem(ArrayList<KeyItem> keyItem) {
-        this.keyItem = keyItem;
-    }
-
-    public ArrayList<Clue> getClue() {
-        return clue;
-    }
-
-    public void setClue(ArrayList<Clue> clue) {
-        this.clue = clue;
-    }
+  
 
     public Map getMap() {
         return map;
@@ -98,13 +82,7 @@ public class Game implements Serializable{
         this.player = player;
     }
 
-    public ArrayList<NpcClue> getNpcClue() {
-        return npcClue;
-    }
-
-    public void setNpcClue(ArrayList<NpcClue> npcClue) {
-        this.npcClue = npcClue;
-    }
+    
     
     
 

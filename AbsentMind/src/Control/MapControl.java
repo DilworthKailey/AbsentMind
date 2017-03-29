@@ -8,6 +8,7 @@ package Control;
 import Exception.AntidoteControlException;
 import Exception.PasswordControlException;
 import Model.Map;
+import Model.Player;
 import Model.Scene;
 import View.AntidotePuzzleView;
 import View.PasswordPuzzleView;
@@ -33,10 +34,27 @@ public class MapControl {
     static void movePlayertoStartingLocation(Map map){
         movePlayer(map, 3, 0);
     }
+    
+    public static void givePlayerItem(Player player, Map map){
+       Scene currentScene = map.getLocation().getScene();
+       if (currentScene.getKeyItem() != null){
+            player.getKeyItem().add(currentScene.getKeyItem());
+            currentScene.setKeyItem(null);
+        } 
+       else if (currentScene.getClue() != null){
+           player.getClue().add(currentScene.getClue());
+           currentScene.setClue(null);
+       }
+       else if (currentScene.getNpcClue() != null){
+           player.getNpcClue().add(currentScene.getNpcClue());
+           currentScene.setNpcClue(null);
+       }
+    }
 
     public static void movePlayer(Map map, int row, int column)  {
        map.setLocation(map.getLocations()[row][column]);
        map.getLocation().setVisited(true);
+       
        map.setCurrentRow(row);
        map.setCurrentColumn(column);
        if (row == 2 && column == 3){
