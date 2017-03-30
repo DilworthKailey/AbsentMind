@@ -427,6 +427,7 @@ public class SceneControl {
         basementDoorScene.setKeyItem(null);
         basementDoorScene.setClue(null);
         basementDoorScene.setNpcClue(null);
+        weightComplete = true;
         scenes[SceneType.basementDoor.ordinal()] = basementDoorScene;
         }else{
             basementDoorScene.setDescription(
@@ -444,6 +445,7 @@ public class SceneControl {
         }
         
         Scene basementEntranceScene = new Scene();
+        if (weightComplete == true){
         basementEntranceScene.setDescription(
                      "The entrance to the society's secret base. It looks"
                              + "\n like a dungeon from ancient times with large"
@@ -456,7 +458,18 @@ public class SceneControl {
         basementEntranceScene.setClue(null);
         basementEntranceScene.setNpcClue(null);
         scenes[SceneType.basementEntrance.ordinal()] = basementEntranceScene;
-        
+        }else{
+           basementEntranceScene.setDescription(
+                     "The entrance to the society's secret base is locked. "
+                             + "You'll have to find a key to unlock it.");
+        basementEntranceScene.setDisplaySymbol(" BE ");
+        basementEntranceScene.setBlocked(false);
+        basementEntranceScene.setTravelTime(15);
+        basementEntranceScene.setKeyItem(null);
+        basementEntranceScene.setClue(null);
+        basementEntranceScene.setNpcClue(null);
+        scenes[SceneType.basementEntrance.ordinal()] = basementEntranceScene; 
+        }
         Scene diningHallScene = new Scene();
         diningHallScene.setDescription(
                      "It's a dining hall where the society must gather for "

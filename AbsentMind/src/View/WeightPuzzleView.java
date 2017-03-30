@@ -29,12 +29,14 @@ public class WeightPuzzleView {
 
     public void displayWeightPuzzleView() {
         
-        boolean done = false;
+        boolean calc = false;
         boolean badchoice = false;
+        boolean done = false;
         int choice1 = 0;
         int choice2 = 0;
         int choice3 = 0;
         int choice4 = 0;
+        int pickKey = 0;
         do{
             // prompt for and get keys
             choice1 = this.getChoice1();
@@ -60,7 +62,17 @@ public class WeightPuzzleView {
                 int side1 = WeightPuzzleControl.side1(choice1, choice2);
                 int side2 = WeightPuzzleControl.side2(choice3, choice4);
             
-                done = this.calcWeight(side1, side2);
+                calc = this.calcWeight(side1, side2);
+            }
+        
+        
+            pickKey = this.pickKey();
+            if (pickKey != 5){
+               this.console.println("\nWrong key number, try again."); 
+            }
+            else {
+                this.console.println("\nYou picked the correct key! You may now enter the secret door!");
+                done = true;
             }
         } while (!done);
     }
@@ -239,6 +251,38 @@ public class WeightPuzzleView {
         
         SceneControl.weightComplete = true;
         return true; // huzzah!
+    }
+
+    private int pickKey() {
+        this.promptMessage = "\nType in the number of the correct key to unlock the door.";
+        boolean valid = false;
+        String selection = null;
+        int keyChoice = 0;
+        try{
+        while (!valid) { //loop while an invalid value is enter
+            this.console.println("\n" + this.promptMessage);
+            
+            selection = keyboard.readLine(); // get next line typed on keyboard
+            selection = selection.trim(); // trim off leading and trailing blanks
+            try {
+            keyChoice = Integer.parseInt(selection);
+            } catch (NumberFormatException nf){
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number.");
+            }
+            
+             if (keyChoice > 8 || keyChoice < 0){
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid selection, try again.");
+                keyChoice = -4;
+            }
+             else valid = true;
+        }   
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
+        return keyChoice;
     }
 
     

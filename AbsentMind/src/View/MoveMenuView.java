@@ -71,10 +71,10 @@ public class MoveMenuView extends View {
             if (currentScene.getKeyItem() != null){
                 this.console.println("\nYou found " + currentScene.getKeyItem().getDescription());
             }
-            else if (currentScene.getClue() != null){
+            if (currentScene.getClue() != null){
                 this.console.println("\nYou learned " + currentScene.getClue().getDescription());
             }
-            else if (currentScene.getNpcClue() != null){
+            if (currentScene.getNpcClue() != null){
                 this.console.println("\nThe " +currentScene.getNpcClue().getNpcClueName() + " told you " + currentScene.getNpcClue().getDescription());
             }
             this.console.println(currentScene.getDescription());
