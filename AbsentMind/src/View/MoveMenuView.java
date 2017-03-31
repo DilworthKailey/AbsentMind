@@ -22,7 +22,7 @@ public class MoveMenuView extends View {
      public MoveMenuView(){
         super("\n"
                 + "\n-------------------------------------"
-                + "\n| Status Menu                         |"
+                + "\n| Move Menu                         |"
                 + "\n-------------------------------------"
                 + "\nYou can move North, East, South and"
                 + "\nWest if the option is available on the"

@@ -116,11 +116,10 @@ public class SceneControl {
         firstSeatScene.setDescription(
                      "You sit in the chair across from the old lady and avoid "
                              + "\nmaking eye contact. You feel something poking you in your"
-                             + "\n pocket. You find a sinlge key with no identification.");
+                             + "\n pocket. You find a single key with no identification.");
         firstSeatScene.setDisplaySymbol(" 1S ");
         firstSeatScene.setBlocked(false);
         firstSeatScene.setTravelTime(15);
-        keyObtained = true;
         KeyItem key = new KeyItem("Key","a key in your pocket. It appears to"
                 + " be a door key.");
         firstSeatScene.setKeyItem(key);
@@ -280,43 +279,21 @@ public class SceneControl {
         scenes[SceneType.thirdFloor.ordinal()] = thirdFloorScene;
         
         Scene deskScene = new Scene();
-        if (keyObtained = false){
         deskScene.setDescription(
                      "\nThe office is unkempt. There are piles of papers and file "
                              + "\nboxes everywhere. The walls are covered with "
                              + "\nnotes and photos with strings of yarn connecting "
                              + "\nthem. You notice a locked drawer, but without a key"
                              + "\n you can't do anything about it.");
+        Clue notebook = new Clue("","");
+        deskScene.setClue(notebook);
         deskScene.setDisplaySymbol(" DK ");
         deskScene.setBlocked(false);
         deskScene.setTravelTime(15);
         deskScene.setKeyItem(null);
-        deskScene.setClue(null);
         deskScene.setNpcClue(null);
         scenes[SceneType.desk.ordinal()] = deskScene;
-        } else {
-           deskScene.setDescription(
-                     "\nThe office is unkempt. There are piles of papers and file "
-                             + "\nboxes everywhere. The walls are covered with "
-                             + "\nnotes and photos with strings of yarn connecting "
-                             + "\nthem. You notice a locked drawer and use the key"
-                             + "\n you found on the subway to open it. Inside you"
-                             + "\n find a notebook and recognize your handwriting:"
-                             + "\n 'I know something is going on at the Gym, something"
-                             + "\nbig! I have gotten a membership and have investigated"
-                             + "\n under-cover so far, but I think they are onto me."
-                             + "\nI have a feeling that I should be careful to stay"
-                             + "\n on high alert and away from the tanning beds.");
-        deskScene.setDisplaySymbol(" DK ");
-        deskScene.setBlocked(false);
-        deskScene.setTravelTime(15);
-        Clue notebook = new Clue("Notebook","you were investigating some kind "
-                + "\nof conspiracy going on at the Gym. ");
-        deskScene.setKeyItem(null);
-        deskScene.setClue(notebook);
-        deskScene.setNpcClue(null);
-        scenes[SceneType.desk.ordinal()] = deskScene; 
-        }
+        
         
         Scene officeStationScene = new Scene();
         officeStationScene.setDescription(
@@ -364,7 +341,6 @@ public class SceneControl {
         gymScene.setDisplaySymbol(" GM ");
         gymScene.setBlocked(false);
         gymScene.setTravelTime(15);
-        noteObtained = true;
         KeyItem stickyNote = new KeyItem("Notebook","a sticky note with a locker combination"
                 + "\n and the message 'YOUR NAME' in bold letters.");
         gymScene.setKeyItem(stickyNote);
@@ -386,10 +362,9 @@ public class SceneControl {
         scenes[SceneType.lockerRoom.ordinal()] = lockerRoomScene;
         
         Scene lockerScene = new Scene();
-         if (noteObtained = false){
         lockerScene.setDescription(
                      "You find your locker in the Gym, but it is locked by a combination coded lock."
-                             + "\n You are unable to open it.");
+                            );
         lockerScene.setDisplaySymbol(" LK ");
         lockerScene.setBlocked(false);
         lockerScene.setTravelTime(15);
@@ -397,40 +372,9 @@ public class SceneControl {
         lockerScene.setClue(null);
         lockerScene.setNpcClue(null);
         scenes[SceneType.locker.ordinal()] = lockerScene;
-         } else{
-             lockerScene.setDescription(
-                     "You find your locker in the Gym, and are able to open it using the"
-                             + "\n combination you found earlier. You find your phone. But it"
-                             + "\nis password locked. You turn it on and make an attempt:");
-        lockerScene.setDisplaySymbol(" LK ");
-        lockerScene.setBlocked(false);
-        lockerScene.setTravelTime(15);
-        lockerScene.setKeyItem(null);
-        lockerScene.setClue(null);
-        lockerScene.setNpcClue(null);
-        scenes[SceneType.locker.ordinal()] = lockerScene;
-         }
-        
+         
         Scene basementDoorScene = new Scene();
-        if (phoneMessage == true){
         basementDoorScene.setDescription(
-                     "The room is old, dark and musty. "
-                             + "There are boxes of storage and some broken fitness equipment scattered around. "
-                             + "\nFollowing the phone message’s instructions, you find a strange panel on the wall and remove it. "
-                             + "\nBehind it is a secret room. In this room is an ancient"
-                             + "\n looking door with two scales and eight keys. Perhaps you"
-                             + "\n can find the right key by weighing the different keys"
-                             + "\n on the scales?");
-        basementDoorScene.setDisplaySymbol(" BD ");
-        basementDoorScene.setBlocked(false);
-        basementDoorScene.setTravelTime(15);
-        basementDoorScene.setKeyItem(null);
-        basementDoorScene.setClue(null);
-        basementDoorScene.setNpcClue(null);
-        weightComplete = true;
-        scenes[SceneType.basementDoor.ordinal()] = basementDoorScene;
-        }else{
-            basementDoorScene.setDescription(
                      "The room is old, dark and musty. "
                              + "\nThere are boxes of storage and some broken "
                              + "\nfitness equipment scattered around. "
@@ -442,10 +386,9 @@ public class SceneControl {
         basementDoorScene.setClue(null);
         basementDoorScene.setNpcClue(null);
         scenes[SceneType.basementDoor.ordinal()] = basementDoorScene;
-        }
+        
         
         Scene basementEntranceScene = new Scene();
-        if (weightComplete == true){
         basementEntranceScene.setDescription(
                      "The entrance to the society's secret base. It looks"
                              + "\n like a dungeon from ancient times with large"
@@ -458,18 +401,7 @@ public class SceneControl {
         basementEntranceScene.setClue(null);
         basementEntranceScene.setNpcClue(null);
         scenes[SceneType.basementEntrance.ordinal()] = basementEntranceScene;
-        }else{
-           basementEntranceScene.setDescription(
-                     "The entrance to the society's secret base is locked. "
-                             + "You'll have to find a key to unlock it.");
-        basementEntranceScene.setDisplaySymbol(" BE ");
-        basementEntranceScene.setBlocked(false);
-        basementEntranceScene.setTravelTime(15);
-        basementEntranceScene.setKeyItem(null);
-        basementEntranceScene.setClue(null);
-        basementEntranceScene.setNpcClue(null);
-        scenes[SceneType.basementEntrance.ordinal()] = basementEntranceScene; 
-        }
+        
         Scene diningHallScene = new Scene();
         diningHallScene.setDescription(
                      "It's a dining hall where the society must gather for "
@@ -499,7 +431,6 @@ public class SceneControl {
         labScene.setKeyItem(antidote);
         labScene.setClue(null);
         labScene.setNpcClue(null);
-        antidoteFound = true;
         scenes[SceneType.lab.ordinal()] = labScene;
         
         
@@ -525,11 +456,8 @@ public class SceneControl {
         
         
         Scene finishScene = new Scene();
-        if (antidoteFound == true){
         finishScene.setDescription(
-                     "You escape with your life from the dungeon and "
-                             + "\nprepare to take the antidote to your"
-                             + "\n poison...");
+                     "");
         finishScene.setDisplaySymbol(" FN ");
         finishScene.setBlocked(false);
         finishScene.setTravelTime(Double.POSITIVE_INFINITY);
@@ -537,22 +465,6 @@ public class SceneControl {
         finishScene.setClue(null);
         finishScene.setNpcClue(null);
         scenes[SceneType.finish.ordinal()] = finishScene;
-        } else {
-           finishScene.setDescription(
-                     "You found the exit from the horrible dungeon. "
-                             + "\nYou escape and tell the world about them and"
-                             + "\n their deadly poison. You saved the world, but"
-                             + "\n you never found the antidote for yourself. You"
-                             + "\n die an unsung hero.");
-        finishScene.setDisplaySymbol(" FN ");
-        finishScene.setBlocked(false);
-        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
-        finishScene.setKeyItem(null);
-        finishScene.setClue(null);
-        finishScene.setNpcClue(null);
-        scenes[SceneType.finish.ordinal()] = finishScene; 
-        }
-        
         return scenes;
     }
     

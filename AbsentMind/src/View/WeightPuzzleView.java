@@ -72,13 +72,20 @@ public class WeightPuzzleView {
             }
             else {
                 this.console.println("\nYou picked the correct key! You may now enter the secret door!");
+                SceneControl.weightComplete = true;
                 done = true;
             }
         } while (!done);
     }
 
     private int getChoice1() {
-       
+       this.console.println("The room is old, dark and musty. "
+                             + "There are boxes of storage and some broken fitness equipment scattered around. "
+                             + "\nFollowing the phone message’s instructions, you find a strange panel on the wall and remove it. "
+                             + "\nBehind it is a secret room. In this room is an ancient"
+                             + "\n looking door with two scales and eight keys. Perhaps you"
+                             + "\n can find the right key by weighing the different keys"
+                             + "\n on the scales?");
         this.promptMessage = "\nType a key number (1-8) to place it on the right side of the scale.";
         boolean valid = false;
         String selection = null;
@@ -249,7 +256,7 @@ public class WeightPuzzleView {
          }
         // perform next action
         
-        SceneControl.weightComplete = true;
+        
         return true; // huzzah!
     }
 
@@ -282,6 +289,7 @@ public class WeightPuzzleView {
             ErrorView.display(this.getClass().getName(),
                     "Error reading input: " + e.getMessage());
         }
+
         return keyChoice;
     }
 

@@ -36,6 +36,10 @@ public void displayPasswordPuzzle() throws PasswordControlException{
     double password = PasswordControl.setPassword(playerName);
     
     do{
+        this.console.println(
+                     "You find your locker in the Gym, and are able to open it using the"
+                             + "\n combination you found earlier. You find your phone. But it"
+                             + "\nis password locked. You turn it on and make an attempt:");
         playerPassword = this.getPassword();
 
         if (playerPassword != password){

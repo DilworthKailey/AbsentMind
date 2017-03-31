@@ -7,6 +7,7 @@ package Control;
 
 import Exception.AntidoteControlException;
 import Exception.PasswordControlException;
+import Model.Clue;
 import Model.Map;
 import Model.Player;
 import Model.Scene;
@@ -57,6 +58,28 @@ public class MapControl {
        
        map.setCurrentRow(row);
        map.setCurrentColumn(column);
+       if (row == 1 && column == 4 && SceneControl.keyObtained == true){
+           System.out.println(
+                     "You notice a locked drawer and use the key"
+                             + "\n you found on the subway to open it. Inside you"
+                             + "\n find a notebook and recognize your handwriting:"
+                             + "\n 'I know something is going on at the Gym, something"
+                             + "\nbig! I have gotten a membership and have investigated"
+                             + "\n under-cover so far, but I think they are onto me."
+                             + "\nI have a feeling that I should be careful to stay"
+                             + "\n on high alert and away from the tanning beds.");
+        Clue notebook = new Clue("Notebook","you were investigating some kind "
+                + "\nof conspiracy going on at the Gym. ");
+       }
+       if (row == 2 && column == 1){
+           SceneControl.keyObtained = true;
+       } 
+        if (row == 0 && column == 3){
+           SceneControl.noteObtained = true;
+       } 
+         if (row == 1 && column == 1){
+           SceneControl.antidoteFound = true;
+       } 
        if (row == 2 && column == 3){
            if (SceneControl.noteObtained == true){
            MapControl.password();
@@ -68,9 +91,7 @@ public class MapControl {
            }
        }
        if (row == 0 && column == 0){
-           if (SceneControl.antidoteFound == true){
            MapControl.antidotePuzzle();
-           }
        }
     }
 

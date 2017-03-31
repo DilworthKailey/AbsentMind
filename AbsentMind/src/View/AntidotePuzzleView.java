@@ -7,6 +7,7 @@ package View;
 
 import java.util.Scanner;
 import Control.AntidoteControl;
+import Control.SceneControl;
 import Exception.AntidoteControlException;
 import absentmind.AbsentMind;
 import java.io.BufferedReader;
@@ -32,8 +33,16 @@ public class AntidotePuzzleView {
         boolean done = false;
         boolean badchoice = false;
         int weight = 0;
-        
-        do{
+        if (SceneControl.antidoteFound == true){
+        this.console.println(
+                     "You escape with your life from the dungeon and "
+                             + "\nprepare to take the antidote to your"
+                             + "\n poison...");
+                this.console.println("\nThere is plenty of antidote, but it could be deadly to "
+                + "\ntake without thinking about your weight. The vial states dosage in kilograms "
+                + "\nso you will need to remember your weight in pounds.");
+                this.promptMessage = "\nPlease enter your weight.";
+                do{
             // prompt for and get keys
             weight = this.getWeight();
             if (weight == -1){
@@ -45,14 +54,19 @@ public class AntidotePuzzleView {
                 done = this.calcDosage(weightKilo);
             }
         } while (!done);
+        }
+        else {
+           this.console.println(
+                     "You found the exit from the horrible dungeon. "
+                             + "\nYou escape and tell the world about them and"
+                             + "\n their deadly poison. You saved the world, but"
+                             + "\n you never found the antidote for yourself. You"
+                             + "\n die an unsung hero.");
+                }
     }
 
     private int getWeight() 
             throws AntidoteControlException {
-        this.console.println("\nThere is plenty of antidote, but it could be deadly to "
-                + "take without thinking about your weight. The vial states dosage in kilograms "
-                + "so you will need to remember your weight in pounds.");
-        this.promptMessage = "\nPlease enter your weight.";
 
         boolean valid = false;
         String selection = null;
@@ -93,9 +107,9 @@ public class AntidotePuzzleView {
         double dosage = AntidoteControl.calcDosage(weightKilo);
         this.console.println("\nThe dosage is " + dosage + "mg.");
         this.console.println("\nYou take the proper dosage and feel your spirits"
-                + " refreshed! You rush out to the media and tell your tale. Your memory"
-                + " has regained and you save the city from the society's deadly poison!"
-                + " You win!");
+                + "\n refreshed! You rush out to the media and tell your tale. Your memory"
+                + "\n has regained and you save the city from the society's deadly poison!"
+                + "\n You win!");
         
         return true;
     }
